@@ -1,5 +1,7 @@
 # Research Summary
 
+*Open Rocket Defense System Project*
+
 ## Current Status
 Research framework established with comprehensive analysis of:
 - Russian offensive capabilities

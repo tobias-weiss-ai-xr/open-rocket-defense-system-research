@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-Enabled Distributed Defense System Analysis Dashboard - Monte Carlo Simulation Results">
+    <meta name="keywords" content="Ukraine, missile defense, AI, Monte Carlo, simulation, analysis, dashboard">
+    <meta name="author" content="Open Rocket Defense System Research">
+    
+    <title>⚠️ Critical Finding: AI Defense System Analysis | Open Rocket Defense Research</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" as="script">
+    <link rel="preload" href="data/monte_carlo_analysis.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="assets/css/styles.css" as="style">
+    <link rel="preload" href="assets/js/dashboard.js" as="script">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Ukraine Missile Defense Analysis</h1>
+            <p class="subtitle">
+                AI-Enabled Distributed Defense System - Monte Carlo Simulation Results
+                <small>10,000 simulations | 5-year horizon | Kinzhal defense analysis</small>
+            </p>
+        </div>
+    </header>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Last Updated & Refresh -->
+        <div class="last-updated">
+            Last updated: <span id="update-time">Loading...</span>
+        </div>
+        
+        <button class="refresh-btn" onclick="loadData()" aria-label="Refresh simulation data">
+            <span>🔄</span> Refresh Data
+        </button>
+        
+        <!-- Loading State -->
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading simulation analysis...</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">
+                This may take a moment. The site loads 10,000 simulation results.
+            </p>
+        </div>
+        
+        <!-- Error State -->
+        <div id="error" class="error-box" style="display: none;"></div>
+        
+        <!-- Dashboard Content -->
+        <div id="dashboard">
+            
+            <!-- ===================================================================
+                 CRITICAL FINDING SECTION
+                 =================================================================== -->
+            <section class="critical-alert" role="alert" aria-live="assertive">
+                <h1>
+                    <span class="critical-icon" role="img" aria-label="Critical warning">⚠️</span>
+                    CRITICAL FINDING
+                </h1>
+                <p class="finding" id="main-finding">
+                    0% of 10,000 simulations achieved the 60% hit rate target
+                </p>
+                <div class="implication">
+                    <strong>What this means:</strong> The AI-Enabled Distributed Defense System, as currently designed, 
+                    <strong>cannot achieve its primary performance objective</strong>. This is not a statistical artifact—
+                    it's a fundamental limitation of the approach given the constraints (Kinzhal Mach 10 speed, network 
+                    dependencies, Russian electronic warfare, etc.).
+                </div>
+                <div class="action">
+                    <strong>Recommended Action:</strong> Pursue this system only as a <strong>research project</strong> with 
+                    clear milestones and <strong>cancel if hit rate &lt;50%</strong> in testing. Primary investment should 
+                    shift to <strong>shelters + proven systems (Gepard, IRIS-T)</strong> for immediate protection.
+                </div>
+            </section>
+            
+            <!-- ===================================================================
+                 EXECUTIVE SUMMARY
+                 =================================================================== -->
+            <section aria-labelledby="executive-summary-heading">
+                <h2 id="executive-summary-heading">Executive Summary</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>
+                            <span class="tag danger">❌</span> Failure Rate
+                        </h3>
+                        <div class="stat-grid">
+                            <div class="stat-item">
+                                <span class="stat-value danger" id="performance-target-hit-rate">Loading...</span>
+                                <span class="stat-label">Meets 60% hit rate</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value danger" id="system-failure-rate">Loading...</span>
+                                <span class="stat-label">System failure risk</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value warning" id="both-targets-rate">Loading...</span>
+                                <span class="stat-label">Meets both targets</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>
+                            <span class="tag warning">💰</span> Cost Reality
+                        </h3>
+                        <div class="stat-grid">
+                            <div class="stat-item">
+                                <span class="stat-value primary" id="mean-cost">Loading...</span>
+                                <span class="stat-label">Mean 5-year cost</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value warning" id="budget-target-rate">Loading...</span>
+                                <span class="stat-label">Meets $4B budget</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value warning" id="cost-std-dev">Loading...</span>
+                                <span class="stat-label">Cost variability</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>
+                            <span class="tag danger">⏱️</span> Timeline Risk
+                        </h3>
+                        <div class="stat-grid">
+                            <div class="stat-item">
+                                <span class="stat-value danger" id="full-deployment">Loading...</span>
+                                <span class="stat-label">Full deployment</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value warning" id="prototype-deployment">Loading...</span>
+                                <span class="stat-label">Prototype ready</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value danger">Too slow</span>
+                                <span class="stat-label">For current crisis</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>
+                            <span class="tag success">🎯</span> Alternative Success
+                        </h3>
+                        <div class="stat-grid">
+                            <div class="stat-item">
+                                <span class="stat-value success" id="cheaper-than-patriot">Loading...</span>
+                                <span class="stat-label">Cheaper than Patriot</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value danger" id="cheaper-than-shelters">Loading...</span>
+                                <span class="stat-label">Cheaper than shelters</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value success">8x better</span>
+                                <span class="stat-label">Shelter cost-effectiveness</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ===================================================================
+                 KEY METRICS VISUALIZATION
+                 =================================================================== -->
+            <section aria-labelledby="key-metrics-heading">
+                <h2 id="key-metrics-heading">Key Metrics</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Cost Distribution (5-Year)</h3>
+                        <div class="chart-container">
+                            <canvas id="costDistributionChart" aria-label="Bar chart showing 5-year cost distribution across simulations"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Hit Probability Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="hitProbabilityChart" aria-label="Bar chart showing hit probability distribution across simulations"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Cost vs. Performance Targets</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+                            <span class="tag danger">Red dashed lines</span> Budget target ($4B) &amp; Performance target (60%)
+                        </p>
+                        <div class="chart-container">
+                            <canvas id="targetScatterChart" aria-label="Scatter plot of cost vs performance showing the empty success zone"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>What Drives Performance?</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+                            Sensitivity analysis - Network Availability dominates
+                        </p>
+                        <div class="chart-container">
+                            <canvas id="sensitivityChart" aria-label="Doughnut chart showing which factors most affect hit probability"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ===================================================================
+                 SYSTEM COMPARISON
+                 =================================================================== -->
+            <section aria-labelledby="comparison-heading">
+                <h2 id="comparison-heading">System Comparison</h2>
+                
+                <div class="methodology-box">
+                    <h3>📋 Methodology Note</h3>
+                    <p>
+                        <strong>This analysis uses real simulation data where available.</strong> 
+                        For the AI Distributed System, all values come directly from the Monte Carlo results.
+                        For alternative systems (Patriot, Shelters), we use the best publicly available estimates 
+                        and clearly mark them as <span class="tag info">Estimated</span>.
+                    </p>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="card">
+                        <div class="option-card warning">
+                            <div class="option-header">
+                                <span class="option-name">AI Distributed System</span>
+                                <span class="option-grade warning">C+</span>
+                            </div>
+                            <p><strong>Cost:</strong> <span id="ai-cost">Loading...</span></p>
+                            <p><strong>Hit Rate:</strong> <span id="ai-hit-rate">Loading...</span> <span class="tag warning">Variable</span></p>
+                            <p><strong>Timeline:</strong> 40 months <span class="tag danger">Too slow</span></p>
+                            <p><strong>Cost per life:</strong> <span id="ai-cost-per-life">Loading...</span></p>
+                            <p small style="margin-top: 12px; font-size: 0.85rem;">
+                                <strong>Risk:</strong> High technical risk. 0% of simulations meet targets.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="option-card warning">
+                            <div class="option-header">
+                                <span class="option-name">Patriot Batteries</span>
+                                <span class="option-grade warning">B</span>
+                            </div>
+                            <p><strong>Cost:</strong> <span id="patriot-cost">~$6-7B</span> <span class="tag info">Estimated</span></p>
+                            <p><strong>Hit Rate:</strong> 40-50% <span class="tag info">vs. Kinzhal</span></p>
+                            <p><strong>Timeline:</strong> 6-12 months <span class="tag success">Available now</span></p>
+                            <p><strong>Cost per life:</strong> <span id="patriot-cost-per-life">~$12K</span> <span class="tag info">Estimated</span></p>
+                            <p small style="margin-top: 12px; font-size: 0.85rem;">
+                                <strong>Risk:</strong> Moderate. Proven system but expensive and not fully effective against Kinzhal.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="option-card success">
+                            <div class="option-header">
+                                <span class="option-name">Shelters</span>
+                                <span class="option-grade success">A</span>
+                            </div>
+                            <p><strong>Cost:</strong> $500M <span class="tag info">Estimated</span></p>
+                            <p><strong>Protection:</strong> 90%+ casualty reduction <span class="tag success">Guaranteed</span></p>
+                            <p><strong>Timeline:</strong> 3-6 months <span class="tag success">Fast</span></p>
+                            <p><strong>Cost per life:</strong> <span id="shelter-cost-per-life">~$140</span></p>
+                            <p small style="margin-top: 12px; font-size: 0.85rem;">
+                                <strong>Risk:</strong> Low. Passive protection works immediately. Cheapest option.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="option-card success">
+                            <div class="option-header">
+                                <span class="option-name">Hybrid Approach</span>
+                                <span class="option-grade success">A+</span>
+                            </div>
+                            <p><strong>Cost:</strong> $3.15B <span class="tag info">Phased</span></p>
+                            <p><strong>Components:</strong> Shelters + Gepard + IRIS-T + Early Warning</p>
+                            <p><strong>Timeline:</strong> Immediate + 6-12mo + 12-18mo</p>
+                            <p><strong>Cost per life:</strong> ~$31,500</p>
+                            <p small style="margin-top: 12px; font-size: 0.85rem;">
+                                <strong>Risk:</strong> Low. Combines proven effectiveness with reasonable cost.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px; color: var(--text-muted); text-align: center;">
+                    <span class="tag info">Note:</span> Shelters and Hybrid approaches are more cost-effective than the AI system by 8-25x
+                </p>
+            </section>
+            
+            <!-- ===================================================================
+                 DETAILED STATISTICS
+                 =================================================================== -->
+            <section aria-labelledby="details-heading">
+                <h2 id="details-heading">Detailed Statistical Analysis</h2>
+                <div class="grid-large">
+                    <div class="card">
+                        <h3>Cost Statistics</h3>
+                        <div class="data-table-wrap">
+<table class="data-table" aria-label="Detailed cost statistics from Monte Carlo simulation">
+                            <thead>
+                                <tr><th>Metric</th><th>Value</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Mean Cost (5-year)</td><td id="mean-cost-detail">Loading...</td></tr>
+                                <tr><td>Median Cost</td><td id="median-cost">Loading...</td></tr>
+                                <tr><td>Std Deviation</td><td id="std-dev-cost">Loading...</td></tr>
+                                <tr><td>10th Percentile</td><td id="p10-cost">Loading...</td></tr>
+                                <tr><td>90th Percentile</td><td id="p90-cost">Loading...</td></tr>
+                                <tr><td>Worst Case (95%)</td><td id="worst-case-cost">Loading...</td></tr>
+                            </tbody>
+                        </table>
+</div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Performance Statistics</h3>
+                        <div class="data-table-wrap">
+<table class="data-table" aria-label="Detailed performance statistics from Monte Carlo simulation">
+                            <thead>
+                                <tr><th>Metric</th><th>Value</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Mean Hit Probability</td><td id="mean-hit-prob">Loading...</td></tr>
+                                <tr><td>Median Hit Probability</td><td id="median-hit-prob">Loading...</td></tr>
+                                <tr><td>10th Percentile</td><td id="p10-hit-prob">Loading...</td></tr>
+                                <tr><td>90th Percentile</td><td id="p90-hit-prob">Loading...</td></tr>
+                                <tr><td>AI Classification Accuracy</td><td id="mean-ai-accuracy">Loading...</td></tr>
+                                <tr><td>Network Availability</td><td id="mean-network-availability">Loading...</td></tr>
+                            </tbody>
+                        </table>
+</div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Sensitivity Analysis</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">
+                            Which factors most affect the results? (Percentage of variance explained)
+                        </p>
+                        <div class="data-table-wrap">
+<table class="data-table" aria-label="Sensitivity analysis showing which variables drive cost and performance">
+                            <thead>
+                                <tr><th>Driver</th><th>Cost Impact</th><th>Performance Impact</th></tr>
+                            </thead>
+                            <tbody id="sensitivity-table">
+                                <tr><td>Loading...</td><td>Loading...</td><td>Loading...</td></tr>
+                            </tbody>
+                        </table>
+</div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Risk Metrics</h3>
+                        <div class="data-table-wrap">
+<table class="data-table" aria-label="Risk assessment metrics from Monte Carlo simulation">
+                            <thead>
+                                <tr><th>Risk Category</th><th>Probability</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>System underperforms (<50% hit rate)</td><td id="risk-system-failure">Loading...</td></tr>
+                                <tr><td>Budget overrun ($4B)</td><td id="risk-budget-overrun">Loading...</td></tr>
+                                <tr><td>Cost > $5B</td><td id="risk-5b-cost">Calculating...</td></tr>
+                                <tr><td>Hit rate < 40%</td><td id="risk-low-hit-rate">Calculating...</td></tr>
+                            </tbody>
+                        </table>
+</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ===================================================================
+                 RECOMMENDATIONS
+                 =================================================================== -->
+            <section aria-labelledby="recommendations-heading">
+                <h2 id="recommendations-heading">Data-Driven Recommendations</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3><span class="tag danger">❌</span> What NOT to Do</h3>
+                        <ul class="recommendation-list">
+                            <li class="danger">Do NOT deploy the AI system as primary defense - 0% chance of meeting targets</li>
+                            <li class="danger">Do NOT invest full $4B upfront - 51.7% chance of budget overrun</li>
+                            <li class="danger">Do NOT wait 40 months for deployment - crisis demands immediate action</li>
+                            <li class="warning">Do NOT rely on AI classification alone - network availability is 5x more important</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><span class="tag success">✅</span> What TO Do</h3>
+                        <ul class="recommendation-list">
+                            <li class="success">INVEST in shelters immediately - saves 90%+ lives at $140/life</li>
+                            <li class="success">DEPLOY proven systems (Gepard, IRIS-T) - available now, known effectiveness</li>
+                            <li class="success">BUILD early warning network - provides 60-90 seconds, saves lives immediately</li>
+                            <li class="warning">RESEARCH AI system in parallel - small investment ($50M), clear milestones, cancel if &lt;50% hit rate in testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ===================================================================
+                 METHODOLOGY
+                 =================================================================== -->
+            <section aria-labelledby="methodology-heading">
+                <h2 id="methodology-heading">About This Analysis</h2>
+                <div class="grid-large">
+                    <div class="card">
+                        <h3>📊 What Was Simulated?</h3>
+                        <p>
+                            10,000 Monte Carlo simulations explored uncertainty in:
+                        </p>
+                        <ul class="recommendation-list">
+                            <li>Capital costs (sensor nodes, interceptors, AI development)</li>
+                            <li>Operating costs (personnel, maintenance, fuel, interceptors)</li>
+                            <li>Deployment timelines (prototype, partial, full)</li>
+                            <li>Technical performance (AI accuracy, network availability)</li>
+                            <li>Threat environment (Kinzhal attack rates, EW effectiveness, SEAD attrition)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>📐 Key Assumptions</h3>
+                        <p>
+                            All assumptions are documented and can be modified:
+                        </p>
+                        <div class="data-table-wrap">
+<table class="data-table">
+                            <thead>
+                                <tr><th>Parameter</th><th>Distribution</th><th>Range</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Sensor node cost</td><td>Triangular</td><td>$100K - $1M</td></tr>
+                                <tr><td>Interceptor node cost</td><td>Triangular</td><td>$2M - $10M</td></tr>
+                                <tr><td>AI classification accuracy</td><td>Beta</td><td>70% - 99%</td></tr>
+                                <tr><td>Network availability</td><td>Beta</td><td>30% - 95%</td></tr>
+                                <tr><td>Daily Kinzhal attacks</td><td>Log-normal</td><td>Mean: 50</td></tr>
+                                <tr><td>SEAD attrition rate</td><td>Triangular</td><td>2% - 15%/mo</td></tr>
+                                <tr><td>EW effectiveness</td><td>Beta</td><td>0% - 60%</td></tr>
+                            </tbody>
+                        </table>
+</div>
+                        <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
+                            <strong>Source:</strong> <code>scripts/monte_carlo_defense_analysis.py</code>
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🔄 How to Reproduce</h3>
+                        <p>
+                            The entire analysis is open source and reproducible:
+                        </p>
+                        <ol style="padding-left: 20px; line-height: 1.8;">
+                            <li>Clone the repository: <code>git clone https://github.com/tobias-weiss-ai-xr/open-rocket-defense-system-research</code></li>
+                            <li>Install dependencies: <code>pip install numpy pandas</code></li>
+                            <li>Run simulation: <code>python3 scripts/monte_carlo_defense_analysis.py</code></li>
+                            <li>View results: Check <code>research/</code> directory</li>
+                            <li>Deploy site: Enable GitHub Pages on <code>site/</code> folder</li>
+                        </ol>
+                        <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
+                            <strong>Note:</strong> Simulations take 2-5 minutes to run with 10,000 iterations
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>⚠️ Limitations</h3>
+                        <p>
+                            This analysis has several limitations:
+                        </p>
+                        <ul class="recommendation-list">
+                            <li class="warning">Does not model Russian counter-adaptations over time</li>
+                            <li class="warning">Assumes static threat environment</li>
+                            <li class="warning">Does not include political/supply chain constraints</li>
+                            <li class="warning">Cost estimates are pre-war (2024) dollars</li>
+                            <li class="warning">Timeline assumes no material shortages</li>
+                            <li class="warning">Does not account for training/learning curve effects</li>
+                        </ul>
+                        <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
+                            For more details, see: <code>research/open-rocket-defense-systems.md</code>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                <a href="https://github.com/tobias-weiss-ai-xr/open-rocket-defense-system-research">
+                    📁 Open Rocket Defense System Research on GitHub
+                </a>
+            </p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">
+                Monte Carlo simulation of AI-Enabled Distributed Defense System | 
+                10,000 iterations | Python 3.x | Chart.js 4.4.0 | <span id="footer-interval">Analysis performed: Loading...</span>
+            </p>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/dashboard.js"></script>
+    
+    <!-- Start loading data on page load -->
+    <script>
+        // Show loading state initially
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('dashboard').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

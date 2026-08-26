@@ -1,5 +1,7 @@
 # Ukrainian Missile Defense: Cost-Effective Alternatives Analysis
 
+*Part of the Open Rocket Defense System project*
+
 ## Research Goal
 Identify cost-effective alternatives to the Patriot system for protecting Ukrainian civilians from Russian rocket/missile attacks.
 

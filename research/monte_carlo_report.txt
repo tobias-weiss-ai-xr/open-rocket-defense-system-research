@@ -1,0 +1,101 @@
+================================================================================
+MONTE CARLO SIMULATION REPORT
+AI-Enabled Distributed Defense System
+================================================================================
+
+Generated: 2026-08-26 12:59:58
+Simulations: 10,000
+
+--------------------------------------------------------------------------------
+EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+
+Key Findings:
+• Mean 5-year cost: $4,026,727,174
+• Median 5-year cost: $4,023,042,125
+• Cost range (10-90%): $3,335,597,218 - $4,715,690,773
+• Mean hit probability: 46.2%
+• Mean lives saved: 3,631,768
+• Mean cost per life saved: $1,525
+
+Probability of Success:
+• Cheaper than Patriot: 100.0%
+• Cheaper than shelters: 0.0%
+• Meets budget target: 48.3%
+• Meets performance target: 0.0%
+• Meets BOTH targets: 0.0%
+
+Risk Assessment:
+• System failure risk: 69.1%
+• Budget overrun risk: 3.7%
+• Worst-case cost (95th percentile): $4,918,174,581
+
+--------------------------------------------------------------------------------
+KEY RECOMMENDATIONS
+--------------------------------------------------------------------------------
+1. BUDGET RISK: Only 48.3% of simulations meet $4B target. Budget estimates may be optimistic.
+
+2. PERFORMANCE RISK: Only 0.0% of simulations achieve 60%+ hit rate. Technical risk is significant.
+
+3. HIGH FAILURE RISK: 69.1% probability of system underperformance. Implement extensive testing and fallback plans.
+
+4. SHELTER ALTERNATIVE: Shelters-only is cheaper in 100.0% of simulations. Consider shelters as primary investment.
+
+5. COST FOCUS: Total Capital Cost is the largest cost driver. Prioritize cost control in this area.
+
+6. PERFORMANCE FOCUS: Network Availability most affects hit rate. Invest in improving this capability.
+
+7. TIMELINE RISK: Mean deployment time is 40 months (3+ years). Consider phased approach with interim solutions.
+
+--------------------------------------------------------------------------------
+DETAILED COST ANALYSIS
+--------------------------------------------------------------------------------
+
+Capital Cost Statistics:
+• Mean: $4,026,727,174
+• Median: $4,023,042,125
+• Std Dev: $534,666,129
+• 10th percentile: $3,335,597,218
+• 90th percentile: $4,715,690,773
+
+Savings vs. Patriot (5-year):
+• Mean savings: $1,555,293,618,177
+• Median savings: $1,341,581,997,979
+• 10th percentile: $669,145,423,519
+• 90th percentile: $2,696,992,392,159
+
+--------------------------------------------------------------------------------
+DETAILED PERFORMANCE ANALYSIS
+--------------------------------------------------------------------------------
+
+Hit Probability Statistics:
+• Mean: 46.2%
+• Median: 47.4%
+• 10th percentile: 36.3%
+• 90th percentile: 54.5%
+
+AI Accuracy: 89.9%
+Network Availability: 72.6%
+
+--------------------------------------------------------------------------------
+SENSITIVITY ANALYSIS
+--------------------------------------------------------------------------------
+
+Top Cost Drivers:
+  • Total Capital Cost: 94.7% of variance
+  • Network Availability: 2.3% of variance
+  • Ew Effectiveness: 1.6% of variance
+
+Top Performance Drivers:
+  • Network Availability: 81.7% of variance
+  • Ai Accuracy: 13.5% of variance
+  • Ew Effectiveness: 1.4% of variance
+
+Top Lives-Saved Drivers:
+  • Daily Kinzhal Rate: 78.4% of variance
+  • Network Availability: 16.7% of variance
+  • Ai Accuracy: 2.8% of variance
+
+================================================================================
+END OF REPORT
+================================================================================

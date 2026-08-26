@@ -12,15 +12,42 @@ Research project identifying cost-effective alternatives to expensive missile de
 
 **Total system cost: $2.65B vs. $15B for Patriot-only**
 
+## Monte Carlo Analysis (New)
+10,000-simulation Monte Carlo analysis of the AI-Enabled Distributed Defense System concept. **Critical finding: 0% of simulations achieved the 60% hit-rate target.**
+
+- **Report**: `research/monte_carlo_report.txt`
+- **Data**: `research/monte_carlo_results.csv`
+- **Simulation code**: `scripts/monte_carlo_defense_analysis.py`
+- **Interactive dashboard**: [site/](site/index.html) (GitHub Pages)
+
+## GitHub Pages Info Site
+An interactive dashboard visualizes all the Monte Carlo statistics at [`site/index.html`](site/index.html).
+
+**To publish as `<username>.github.io/open-rocket-defense-system-research/`:**
+1. Commit the `site/` directory
+2. GitHub → Settings → Pages → Source: `main` branch, `/site` folder
+3. Save (rebuilds in 1-2 min)
+
+**To update with new simulation data:**
+```bash
+python3 scripts/monte_carlo_defense_analysis.py
+cp research/monte_carlo_analysis.json site/data/
+cp research/monte_carlo_results.csv site/data/
+git add site/data && git commit -m "Update simulation data" && git push
+```
+
+See [`site/README.md`](site/README.md) and [`site/DEPLOYMENT.md`](site/DEPLOYMENT.md) for full details.
+
 ## Project Structure
 ```
 ├── README.md              # Project overview
-├── research/              # Main research documents
+├── research/              # Main research documents + Monte Carlo results
 │   └── ukraine-missile-defense-analysis.md
 ├── docs/                  # Technical documentation
 ├── data/                  # Data files and datasets
 ├── sources/               # Source materials and citations
-└── analysis/              # Analysis outputs and visualizations
+├── scripts/               # Analysis scripts (Monte Carlo, visualization, ingestion)
+└── site/                  # GitHub Pages info site (dashboard)
 ```
 
 ## Research Areas
@@ -34,6 +61,8 @@ Research project identifying cost-effective alternatives to expensive missile de
 ## Status
 - [x] Research framework created
 - [x] Open rocket defense systems analysis
+- [x] Monte Carlo simulation (10,000 runs)
+- [x] GitHub Pages dashboard
 - [ ] Data collection
 - [ ] Cost analysis
 - [ ] Alternative evaluation

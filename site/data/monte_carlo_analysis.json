@@ -1,0 +1,99 @@
+{
+  "summary": {
+    "n_simulations": 10000,
+    "mean_total_cost": 4026727174.264126,
+    "median_total_cost": 4023042125.3760557,
+    "std_total_cost": 534666128.5026284,
+    "p10_total_cost": 3335597217.853102,
+    "p90_total_cost": 4715690772.608433,
+    "mean_hit_probability": 0.4624971181363406,
+    "mean_lives_saved": 3631767.5937402863,
+    "mean_cost_per_life": 1524.7468166921142
+  },
+  "cost_analysis": {
+    "cheaper_than_patriot_pct": 100.0,
+    "cheaper_than_shelters_pct": 0.0,
+    "mean_savings_vs_patriot": 1555293618177.4368,
+    "median_savings_vs_patriot": 1341581997979.238,
+    "p10_savings_vs_patriot": 669145423518.8291,
+    "p90_savings_vs_patriot": 2696992392159.474,
+    "budget_target_hit_rate": 48.33
+  },
+  "performance_analysis": {
+    "mean_hit_probability": 0.4624971181363406,
+    "median_hit_probability": 0.4739262880751427,
+    "p10_hit_probability": 0.36286171047285454,
+    "p90_hit_probability": 0.5450961130968432,
+    "performance_target_hit_rate": 0.0,
+    "mean_ai_accuracy": 0.8988336983231786,
+    "mean_network_availability": 0.7258028802919098
+  },
+  "risk_analysis": {
+    "system_failure_risk": 0.6907746740069315,
+    "budget_overrun_risk": 0.0373,
+    "both_targets_hit_rate": 0.0,
+    "worst_case_cost": 4918174580.834309,
+    "worst_case_lives_lost": 4451997.16731171
+  },
+  "correlations": {
+    "total_capital_cost": {
+      "correlation_with_cost": 0.6525794441966826,
+      "correlation_with_performance": -0.01524881474453911
+    },
+    "ai_accuracy": {
+      "correlation_with_cost": -0.0021688690586447595,
+      "correlation_with_performance": 0.15572223717863254
+    },
+    "network_availability": {
+      "correlation_with_cost": -0.015869522686353298,
+      "correlation_with_performance": 0.9457648940608154
+    },
+    "hit_probability": {
+      "correlation_with_cost": -0.012455255948484524,
+      "correlation_with_performance": 1.0
+    },
+    "sead_attrition_rate": {
+      "correlation_with_cost": 0.004350222377760307,
+      "correlation_with_performance": -0.010113502275593413
+    },
+    "ew_effectiveness": {
+      "correlation_with_cost": 0.010865876770223042,
+      "correlation_with_performance": 0.01623633922505075
+    }
+  },
+  "sensitivity": {
+    "cost_drivers": {
+      "total_capital_cost": 0.9465799799670884,
+      "network_availability": 0.02301907085814997,
+      "ew_effectiveness": 0.01576117897514196,
+      "sead_attrition_rate": 0.006310087526985676,
+      "daily_kinzhal_rate": 0.005183693248142667,
+      "ai_accuracy": 0.003145989424491332
+    },
+    "performance_drivers": {
+      "network_availability": 0.817485913858186,
+      "ai_accuracy": 0.13460082539268983,
+      "ew_effectiveness": 0.01403412062813217,
+      "total_capital_cost": 0.013180539196342973,
+      "daily_kinzhal_rate": 0.011956845228292344,
+      "sead_attrition_rate": 0.0087417556963567
+    },
+    "lives_saved_drivers": {
+      "daily_kinzhal_rate": 0.7839868498810101,
+      "network_availability": 0.16718955181044107,
+      "ai_accuracy": 0.02814808267074642,
+      "ew_effectiveness": 0.010932694457218523,
+      "total_capital_cost": 0.00912445445320843,
+      "sead_attrition_rate": 0.0006183667273754397
+    }
+  },
+  "recommendations": [
+    "BUDGET RISK: Only 48.3% of simulations meet $4B target. Budget estimates may be optimistic.",
+    "PERFORMANCE RISK: Only 0.0% of simulations achieve 60%+ hit rate. Technical risk is significant.",
+    "HIGH FAILURE RISK: 69.1% probability of system underperformance. Implement extensive testing and fallback plans.",
+    "SHELTER ALTERNATIVE: Shelters-only is cheaper in 100.0% of simulations. Consider shelters as primary investment.",
+    "COST FOCUS: Total Capital Cost is the largest cost driver. Prioritize cost control in this area.",
+    "PERFORMANCE FOCUS: Network Availability most affects hit rate. Invest in improving this capability.",
+    "TIMELINE RISK: Mean deployment time is 40 months (3+ years). Consider phased approach with interim solutions."
+  ]
+}
