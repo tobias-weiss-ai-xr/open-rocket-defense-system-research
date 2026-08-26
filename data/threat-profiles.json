@@ -1,0 +1,39 @@
+{
+  "russian_offensive_systems": {
+    "kinzhal": {
+      "type": "hypersonic_ballistic",
+      "speed_mach": 10,
+      "range_km": 2000,
+      "cost_usd": 12000000,
+      "warhead_kg": 500
+    },
+    "iskander": {
+      "type": "ballistic",
+      "speed_mach": 6,
+      "range_km": 500,
+      "cost_usd": 6000000,
+      "warhead_kg": 500
+    },
+    "kalibr": {
+      "type": "cruise",
+      "speed_mach": 2.5,
+      "range_km": 1500,
+      "cost_usd": 3000000,
+      "warhead_kg": 450
+    },
+    "kh101": {
+      "type": "cruise",
+      "speed_mach": 0.8,
+      "range_km": 3000,
+      "cost_usd": 2500000,
+      "warhead_kg": 400
+    },
+    "shahed": {
+      "type": "loitering_munition",
+      "speed_kmh": 185,
+      "range_km": 1000,
+      "cost_usd": 30000,
+      "warhead_kg": 40
+    }
+  }
+}
