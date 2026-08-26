@@ -1,0 +1,22 @@
+# Research data
+data/*.csv
+data/*.xlsx
+data/raw/
+
+# Analysis outputs
+analysis/*.png
+analysis/*.pdf
+analysis/output/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
