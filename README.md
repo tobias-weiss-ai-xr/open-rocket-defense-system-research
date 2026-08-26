@@ -1,7 +1,16 @@
-# Ukrainian Missile Defense: Cost-Effective Alternatives
+# Open Rocket Defense System Research
 
-## Research Goal
-Identify cost-effective alternatives to the Patriot system for protecting Ukrainian civilians from Russian rocket/missile attacks.
+## Overview
+Research project identifying cost-effective alternatives to expensive missile defense systems for protecting Ukrainian civilians from Russian rocket, artillery, and missile attacks.
+
+## Key Finding
+**Layered defense with open systems saves 82% vs. Patriot-only approach:**
+- C-RAM: $750 per engagement (vs. $4M Patriot)
+- Gepard: $1,000 per engagement
+- ZU-23-2: $200 per engagement
+- EW Jamming: $10 per engagement (drones)
+
+**Total system cost: $2.65B vs. $15B for Patriot-only**
 
 ## Project Structure
 ```
