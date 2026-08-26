@@ -295,10 +295,17 @@ Layer 4 (0-5km): Point defense (APS/Anti-drone) - close threats
 1. **Patriot is necessary but insufficient**: Too expensive for comprehensive coverage
 2. **Layered defense is essential**: No single system can handle all threats
 3. **Cost asymmetry is the main challenge**: $4M interceptor vs $30K drone
-4. **Civilian shelters are most cost-effective**: Direct protection at lowest cost
-5. **Early warning saves lives**: 30 seconds can mean the difference
-6. **Distributed systems are more resilient**: Harder to suppress than centralized batteries
-7. **Ukrainian production is strategic**: Long-term sustainability requires local manufacturing
+4. **Open rocket defense systems are game-changers**: C-RAM at $750/shot, Gepard at $1,000/shot
+5. **Civilian shelters are most cost-effective**: Direct protection at lowest cost
+6. **Early warning saves lives**: 30 seconds can mean the difference
+7. **Distributed systems are more resilient**: Harder to suppress than centralized batteries
+8. **EW jamming is most cost-effective against drones**: $10/engagement vs $4M Patriot
+9. **Ukrainian production is strategic**: Long-term sustainability requires local manufacturing
+
+## 10. See Also
+
+- [Open Rocket Defense Systems](open-rocket-defense-systems.md) - Detailed analysis of C-RAM, Gepard, ZU-23-2, and laser systems
+- Cost savings: Layered system ($2.65B) vs Patriot-only ($15B) = 82% reduction
 
 ---
 
