@@ -11,6 +11,11 @@ let analysisData = null;
 let charts = {};
 let lastDataLoad = null;
 
+// Theme-aware chart text colors (WCAG AAA in both light and dark)
+const IS_DARK = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const CHART_TEXT = IS_DARK ? '#cbd5e1' : '#334155';
+const CHART_ALERT = IS_DARK ? '#fca5a5' : '#b91c1c';
+
 // DOM ready event
 window.addEventListener('DOMContentLoaded', () => {
     // Initialize dashboard
@@ -27,10 +32,10 @@ function initializeDashboard() {
         return;
     }
     
-    // WCAG AAA: accessible chart defaults (text labels >= 7:1 on white)
-    Chart.defaults.color = '#334155';
+    // WCAG AAA: accessible chart defaults (text labels >= 7:1 on card bg)
+    Chart.defaults.color = CHART_TEXT;
     Chart.defaults.font.family = getComputedStyle(document.body).fontFamily || 'system-ui';
-    Chart.defaults.borderColor = '#e2e8f0';
+    Chart.defaults.borderColor = IS_DARK ? '#475569' : '#e2e8f0';
     
     // Start loading data
     loadData();
@@ -616,7 +621,7 @@ function createCostDistributionChart() {
                     display: true,
                     text: `Most Likely Range: ${formatCurrency(s.p10_total_cost)} - ${formatCurrency(s.p90_total_cost)}`,
                     font: { size: 12 },
-                    color: '#334155'
+                    color: CHART_TEXT
                 },
                 tooltip: {
                     callbacks: {
@@ -690,7 +695,7 @@ function createHitProbabilityChart() {
                     display: true,
                     text: `No simulations exceeded 58% hit rate (Target: 60%)`,
                     font: { size: 12 },
-                    color: '#b91c1c'
+                    color: CHART_ALERT
                 },
                 tooltip: {
                     callbacks: {
@@ -835,7 +840,7 @@ function createTargetScatterChart() {
                     display: true,
                     text: 'The "Success Zone" (Cost < $4B, Performance > 60%) is EMPTY',
                     font: { size: 14, weight: 'bold' },
-                    color: '#b91c1c',
+                    color: CHART_ALERT,
                     padding: 20
                 },
                 tooltip: {
@@ -927,7 +932,7 @@ function createSensitivityChart() {
                     display: true,
                     text: 'Network Availability Drives 82% of Performance Variance',
                     font: { size: 12 },
-                    color: '#334155'
+                    color: CHART_TEXT
                 },
                 tooltip: {
                     callbacks: {

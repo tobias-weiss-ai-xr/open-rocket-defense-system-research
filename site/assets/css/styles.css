@@ -1104,7 +1104,7 @@ section[aria-labelledby] > h2::after {
         --bg-alert: #291313;
         --text-primary: #f1f5f9;
         --text-secondary: #cbd5e1;
-        --text-muted: #94a3b8;
+        --text-muted: #b0bccd;
         --border-light: #334155;
         --border-normal: #475569;
     }
@@ -1114,11 +1114,58 @@ section[aria-labelledby] > h2::after {
         border-color: var(--color-danger-400);
     }
     
-    .implication {
-        background: rgba(0, 0, 0, 0.3);
+    /* Higher specificity than .critical-alert .implication so the dark bg wins */
+    .critical-alert .implication {
+        background: rgba(0, 0, 0, 0.35);
         color: #f1f5f9;
     }
-    
+
+    .critical-alert h1,
+    .critical-icon {
+        color: #fca5a5;
+    }
+
+    .critical-alert .finding {
+        color: #fecaca;
+    }
+
+    /* Headings: light blue on dark */
+    section[aria-labelledby] > h2,
+    .card h2 {
+        color: var(--color-primary-300);
+    }
+
+    /* Methodology box: dark navy panel */
+    .methodology-box {
+        background: #172554;
+        border-left-color: var(--color-primary-300);
+    }
+    .methodology-box h3 {
+        color: var(--color-primary-300);
+    }
+    .methodology-box p {
+        color: #cbd5e1;
+    }
+
+    /* Decision banner items: dark tinted panels */
+    .decision-banner-item.success {
+        background: #052e16;
+        border-color: #166534;
+    }
+    .decision-banner-item.warning {
+        background: #451a03;
+        border-color: #92400e;
+    }
+    .decision-banner-item.danger {
+        background: #450a0a;
+        border-color: #991b1b;
+    }
+
+    /* Footer links readable on dark */
+    .footer a {
+        color: var(--color-primary-300);
+    }
+
     .loading .spinner {
         border-color: var(--border-normal);
         border-top-color: var(--color-primary-400);
