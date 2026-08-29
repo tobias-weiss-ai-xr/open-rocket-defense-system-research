@@ -32,6 +32,18 @@ Honest comparison with clear methodology notes:
 - **Shelters**: $500M, 90%+ protection, 3-6 months ✅
 - **Hybrid Approach**: $3.15B, phased deployment, proven systems ✅
 
+### 🎯 **Decision Proposal — Best Long-Term Defense** *(NEW)*
+Bayesian decision analysis across **20,000 paired scenarios** (10-yr horizon, 5% discount):
+- **Comparison table** of 5 strategies (cost/life, lives saved, P(best))
+- **Three-phase portfolio banner**: Passive-first (0–6 mo) → Conditional insurance (6–18 mo) → Critical-node high-end only
+- Key findings:
+  - Passive-first wins lowest cost-per-life in **100%** of scenarios ($3,458/life)
+  - Hybrid saves the most lives in **37%** of scenarios (+39K lives in surges — conditional insurance)
+  - AI-killer confirmed dominated from a second, independent modeling angle
+  - Value of information: ~0% on cost/life — collect threat-rate data, not more system-cost trivia
+
+> Loads from `data/bayesian_decision.json` (compact export of `research/bayesian_decision_analysis.json`).
+
 ### 📋 **Detailed Statistical Analysis**
 - Complete cost statistics (mean, median, percentiles, std dev)
 - Performance statistics (hit rates, AI accuracy, network availability)
@@ -129,7 +141,8 @@ site/
 │       └── dashboard.js       # All logic (data loading, charts, updates)
 ├── data/
 │   ├── monte_carlo_analysis.json  # Structured analysis results
-│   └── monte_carlo_results.csv    # Sampled simulation data (1,500 of 10,000 rows)
+│   ├── monte_carlo_results.csv    # Sampled simulation data (1,500 of 10,000 rows)
+│   └── bayesian_decision.json     # Bayesian decision proposal results (compact export)
 ├── README.md                  # This file
 └── DEPLOYMENT.md              # Deployment guide
 ```

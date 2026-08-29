@@ -412,6 +412,83 @@
             </section>
             
             <!-- ===================================================================
+                 DECISION PROPOSAL (Bayesian decision analysis)
+                 =================================================================== -->
+            <section aria-labelledby="decision-heading" class="decision-section">
+                <h2 id="decision-heading">🎯 Decision Proposal — Best Long-Term Defense</h2>
+                <p class="section-intro">
+                    Bayesian decision analysis across <strong><span id="decision-draws">20,000</span> paired scenarios</strong>
+                    (10-year horizon, 5% discount). PK modeled as Beta posteriors with source-informed priors;
+                    costs as Gamma; threat flows as Gamma-Poisson. Every strategy faces the <em>identical</em> threat
+                    scenario per draw, so rankings isolate strategy differences, not shared guesswork.
+                </p>
+
+                <div class="decision-banner">
+                    <div class="decision-banner-item success">
+                        <span class="decision-pill">PHASE 1 · 0–6 mo</span>
+                        <strong>Passive-first layer</strong>
+                        <span>warning + shelters + basic C2 — non-negotiable foundation (~$0.6–1B)</span>
+                    </div>
+                    <div class="decision-banner-item warning">
+                        <span class="decision-pill">PHASE 2 · 6–18 mo</span>
+                        <strong>Conditional insurance</strong>
+                        <span>cruise layer + counter-drone + deception — gated on threat escalation</span>
+                    </div>
+                    <div class="decision-banner-item danger">
+                        <span class="decision-pill">R&D ONLY</span>
+                        <strong>AI-killer system</strong>
+                        <span>funded R&D with 18/30-mo decision gates — never primary</span>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Strategy comparison (10-yr, discounted)</h3>
+                        <div class="data-table-wrap">
+<table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Strategy</th>
+                                    <th>Capital</th>
+                                    <th>Deploy</th>
+                                    <th>Lives saved</th>
+                                    <th>Cost / life</th>
+                                    <th>P(best cost/life)</th>
+                                    <th>P(most lives)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="decision-table-body">
+                                <tr><td colspan="7">Loading decision results...</td></tr>
+                            </tbody>
+                        </table>
+</div>
+                        <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                            <strong>Reading:</strong> passive-first wins lowest cost-per-life in
+                            <strong><span id="decision-passive-cpl-pct">—</span>%</strong> of scenarios;
+                            hybrid saves the most lives in <strong><span id="decision-hybrid-lives-pct">—</span>%</strong>
+                            — exactly the surge scenarios, where it adds ~39,000 more lives (conditional insurance).
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Why this portfolio wins</h3>
+                        <ul class="recommendation-list">
+                            <li><strong>Passive-first is dominant on cost:</strong> protects against <em>every</em>
+                                threat class — including unhittable Kinzhal/Iskander — at ~$<span id="decision-passive-cpl">—</span>/life,
+                                ~1/6 of the next best option, deployable in ~6 months.</li>
+                            <li><strong>High-end missile defense is retained only for critical nodes</strong>
+                                (power, rail, command) — never city-wide (worst cost-per-life, worst vs drone swarms).</li>
+                            <li><strong>AI-killer is confirmed dominated</strong> from a second, independent modeling
+                                angle: worse than hybrid on every axis under every posterior.</li>
+                            <li><strong>Value of information:</strong> resolving the remaining unknowns changes
+                                cost-per-life by <strong>~0%</strong> and only ~<span id="decision-evsi-lives">—</span>% on lives —
+                                so collect threat-rate / shelter-utilization data, not more system-cost trivia.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ===================================================================
                  METHODOLOGY
                  =================================================================== -->
             <section aria-labelledby="methodology-heading">

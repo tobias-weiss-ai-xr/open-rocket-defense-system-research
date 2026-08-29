@@ -1,0 +1,189 @@
+{
+  "generated": "2026-08-29T08:52:01.038731",
+  "n_draws": 20000,
+  "horizon_years": 10,
+  "discount_rate": 0.05,
+  "summary": {
+    "ai_killer": {
+      "name": "AI-enabled distributed kinetic system (prior Monte Carlo)",
+      "expected_lives_saved": 181646.85409649153,
+      "hdi90_lives_saved": [
+        78828.42393915402,
+        346194.76392229175
+      ],
+      "expected_cost": 13273268868.93021,
+      "hdi90_cost": [
+        10009581687.095985,
+        16866203400.588133
+      ],
+      "cost_per_life_median": 80476.99001729823,
+      "cost_per_life_hdi90": [
+        36430.14314569473,
+        173258.25420466173
+      ],
+      "robustness_min_lives_10pct": 92593.62687962358
+    },
+    "cruise_active": {
+      "name": "Cruise-active (IRIS-T/NASAMS + C-RAM/Gepard + point defense)",
+      "expected_lives_saved": 224705.82187536973,
+      "hdi90_lives_saved": [
+        91869.94424500884,
+        437064.221640066
+      ],
+      "expected_cost": 7334480123.420333,
+      "hdi90_cost": [
+        5710199806.711838,
+        9125504607.042078
+      ],
+      "cost_per_life_median": 36295.58159694737,
+      "cost_per_life_hdi90": [
+        16005.770446802866,
+        82004.34977998883
+      ],
+      "robustness_min_lives_10pct": 109754.47241942877
+    },
+    "high_end": {
+      "name": "High-end missile defense (Patriot/SAMP-T heavy)",
+      "expected_lives_saved": 213590.66807227663,
+      "hdi90_lives_saved": [
+        92161.71304609008,
+        409551.4267507627
+      ],
+      "expected_cost": 37977688547.473526,
+      "hdi90_cost": [
+        31334900916.718918,
+        45221068288.75157
+      ],
+      "cost_per_life_median": 197838.03322794187,
+      "cost_per_life_hdi90": [
+        89886.05731032908,
+        419392.1367885952
+      ],
+      "robustness_min_lives_10pct": 108392.78605138758
+    },
+    "hybrid": {
+      "name": "Hybrid doctrine (passive first + cruise layer + counter-drone + deception)",
+      "expected_lives_saved": 379288.03575550136,
+      "hdi90_lives_saved": [
+        175577.50977514815,
+        694016.3640047865
+      ],
+      "expected_cost": 7546948364.581835,
+      "hdi90_cost": [
+        5477174099.9054785,
+        9924147952.438131
+      ],
+      "cost_per_life_median": 21450.199487977443,
+      "cost_per_life_hdi90": [
+        9997.729030355667,
+        44545.98503182811
+      ],
+      "robustness_min_lives_10pct": 204236.4238651257
+    },
+    "passive": {
+      "name": "Passive-first (warning + shelters + basic C2)",
+      "expected_lives_saved": 391819.71250455745,
+      "hdi90_lives_saved": [
+        177365.43534500065,
+        726957.7157029675
+      ],
+      "expected_cost": 1295528701.9046085,
+      "hdi90_cost": [
+        636703509.5502372,
+        2133892220.5316236
+      ],
+      "cost_per_life_median": 3458.047185409441,
+      "cost_per_life_hdi90": [
+        1320.6638669581603,
+        8454.839163272984
+      ],
+      "robustness_min_lives_10pct": 205388.3122669579
+    }
+  },
+  "meta": {
+    "passive": {
+      "id": "A",
+      "short": "Passive-first",
+      "phase": "Phase 1 (0-6 mo)",
+      "capital_range": "$0.6-1B",
+      "deploy": "~6 months",
+      "role": "Non-negotiable foundation: warning + shelters + basic C2. Protects vs ALL threat classes incl. unhittable Kinzhal/Iskander."
+    },
+    "hybrid": {
+      "id": "D",
+      "short": "Hybrid doctrine",
+      "phase": "Phase 2 (6-18 mo)",
+      "capital_range": "$3.15B",
+      "deploy": "~12 months (phased)",
+      "role": "Conditional insurance: adds cruise layer + counter-drone + deception. Buys +39K lives in surge scenarios."
+    },
+    "cruise_active": {
+      "id": "B",
+      "short": "Cruise-active",
+      "phase": "\u2014",
+      "capital_range": "$2.5B",
+      "deploy": "~18 months",
+      "role": "Discrete systems (IRIS-T/NASAMS + C-RAM). Dominated by hybrid on every axis."
+    },
+    "ai_killer": {
+      "id": "C",
+      "short": "AI-killer system",
+      "phase": "R&D track only",
+      "capital_range": "$4B",
+      "deploy": "~40 months",
+      "role": "Funded R&D with 18/30-mo gates. Prior MC showed 0% chance of hitting 60% target. Never primary."
+    },
+    "high_end": {
+      "id": "E",
+      "short": "High-end missile",
+      "phase": "Critical nodes only",
+      "capital_range": "$12B",
+      "deploy": "~24 months",
+      "role": "Patriot/SAMP-T only around power/rail/command nodes. $198K/life \u2014 57x passive. Worst vs drones."
+    }
+  },
+  "best_probability": {
+    "best_cost_per_life": {
+      "passive": 1.0,
+      "cruise_active": 0.0,
+      "ai_killer": 0.0,
+      "hybrid": 0.0,
+      "high_end": 0.0
+    },
+    "best_lives_saved": {
+      "passive": 0.62805,
+      "cruise_active": 0.0,
+      "ai_killer": 0.0,
+      "hybrid": 0.3717,
+      "high_end": 0.00025
+    },
+    "dominant_on_both": {
+      "passive": 0.62805,
+      "cruise_active": 0.0,
+      "ai_killer": 0.0,
+      "hybrid": 0.0,
+      "high_end": 0.0
+    }
+  },
+  "value_of_information": {
+    "current_best_strategy": "passive",
+    "current_best_mean_cpl": 3982.932800264066,
+    "oracle_mean_cpl": 3982.932800264066,
+    "cpl_improvement_from_oracle_pct": 0.0,
+    "current_best_lives": 391819.71250455745,
+    "oracle_lives": 406464.29537455586,
+    "lives_saved_improvement_from_oracle_pct": 3.73758195482012
+  },
+  "conflict_analysis": {
+    "pct_draws_where_best_cpl_differs_from_most_lives": 37.195
+  },
+  "headline": {
+    "passive_wins_cpl": 100.0,
+    "hybrid_wins_lives": 37.169999999999995,
+    "passive_wins_lives": 62.805,
+    "passive_cpl": 3458.047185409441,
+    "hybrid_cpl": 21450.199487977443,
+    "lights_evsi": 3.73758195482012,
+    "conditional_extra_lives": 39356
+  }
+}

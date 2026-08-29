@@ -137,6 +137,13 @@ async function loadData() {
             console.warn('CSV loading failed, using summary data only:', csvError.message);
         }
         
+        // Load Bayesian decision analysis (best long-term defense proposal)
+        try {
+            await loadDecisionData();
+        } catch (decisionError) {
+            console.warn('Decision proposal data could not be loaded:', decisionError.message);
+        }
+        
         // Update all sections
         updateAllSections();
         
@@ -282,6 +289,7 @@ function updateAllSections() {
     updateExecutiveSummary();
     updateKeyMetrics();
     updateComparison();
+    updateDecisionProposal();
     updateDetails();
     updateRecommendations();
     updateMethodology();
@@ -298,6 +306,71 @@ function updateFooter() {
     if (footerElement) {
         footerElement.textContent = `Analysis: ${s.n_simulations.toLocaleString('en-US')} simulations`;
     }
+}
+
+/**
+ * Load Bayesian decision proposal data (best long-term defense)
+ */
+async function loadDecisionData() {
+    const response = await fetch('data/bayesian_decision.json');
+    if (!response.ok) {
+        throw new Error(`Failed to load decision data: HTTP ${response.status}`);
+    }
+    const data = await response.json();
+    if (!data || !data.summary || !data.best_probability) {
+        throw new Error('Decision data missing required fields');
+    }
+    analysisData.decision = data;
+}
+
+/**
+ * Update decision proposal section with Bayesian analysis results
+ */
+function updateDecisionProposal() {
+    const d = analysisData.decision;
+    if (!d) return;
+
+    const setText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+    };
+
+    // Banner stats
+    setText('decision-draws', (d.n_draws || 20000).toLocaleString('en-US'));
+    const h = d.headline || {};
+    setText('decision-passive-cpl-pct', h.passive_wins_cpl != null ? h.passive_wins_cpl.toFixed(0) : '—');
+    setText('decision-hybrid-lives-pct', h.hybrid_wins_lives != null ? h.hybrid_wins_lives.toFixed(0) : '—');
+    setText('decision-passive-cpl', h.passive_cpl != null ? Math.round(h.passive_cpl) : '—');
+    setText('decision-evsi-lives', h.lights_evsi != null ? h.lights_evsi.toFixed(1) : '—');
+
+    // Strategy comparison table
+    const tbody = document.getElementById('decision-table-body');
+    if (!tbody || !d.summary || !d.meta) return;
+
+    const order = ['passive', 'hybrid', 'cruise_active', 'ai_killer', 'high_end'];
+    const bp = d.best_probability;
+    const rows = order
+        .map((key) => {
+            const s = d.summary[key];
+            const m = d.meta[key];
+            if (!s || !m) return '';
+            const cpl = formatCurrency ? formatCurrency(s.cost_per_life_median) : '$' + Math.round(s.cost_per_life_median);
+            const lives = (s.expected_lives_saved / 1000).toFixed(0) + 'K';
+            const pCpl = bp && bp.best_cost_per_life ? (bp.best_cost_per_life[key] * 100).toFixed(0) + '%' : '—';
+            const pLives = bp && bp.best_lives_saved ? (bp.best_lives_saved[key] * 100).toFixed(0) + '%' : '—';
+            return `<tr>
+                <td><strong>${m.id} · ${m.short}</strong><br>
+                    <small class="text-muted">${m.role}</small></td>
+                <td>${m.capital_range}</td>
+                <td>${m.deploy}</td>
+                <td>${lives}</td>
+                <td>${cpl}</td>
+                <td>${pCpl}</td>
+                <td>${pLives}</td>
+            </tr>`;
+        })
+        .join('');
+    tbody.innerHTML = rows;
 }
 
 /**
