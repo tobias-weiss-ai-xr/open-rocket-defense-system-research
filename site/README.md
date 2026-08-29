@@ -1,10 +1,23 @@
-# AI-Enabled Distributed Defense System - Analysis Dashboard
+# Ukraine Missile Defense Research — Public Site
 
-A GitHub Pages-ready interactive dashboard for visualizing Monte Carlo simulation results.
+Two linked GitHub Pages-ready pages presenting the research:
+
+1. **`explain.html`** — the story-driven <strong>Explainer</strong>: threat landscape (5 verified threat cards + speed/warhead/cost-asymmetry charts), the rationale for simulation, Monte Carlo and Bayesian decision methods, the recommended portfolio, and the claim-verification audit. Starts at `🛡️ Missile Defense Research`.
+2. **`index.html`** — the interactive **Simulation Dashboard**: Monte Carlo distributions, sensitivity, system comparison and the Bayesian decision-proposal section.
+
+Both pages link to each other via a shared navigation.
 
 ## 🚨 **CRITICAL FINDING PRONOUNCED**
 
 **0% of 10,000 simulations achieved the 60% hit rate target.** This means the AI-Enabled Distributed Defense System, as currently designed, **cannot meet its primary performance objective**.
+
+## 📖 What the Explainer Page Covers
+
+- **The problem** — why no single weapon system can stop the mixed Kinzhal/Iskander/Kalibr/Kh-101/Shahed arsenal, with verified threat cards (CSIS sources, retrieved 2026-08-29)
+- **Speed / warhead / cost-asymmetry charts** — including the 20:1–80:1 Shahed-vs-interceptor exchange-ratio problem
+- **Why simulation** — Monte Carlo (10,000 runs) + Bayesian decision analysis (20,000 paired scenarios), with embedded result figures
+- **The decision** — the 5-strategy comparison and the recommended phased portfolio
+- **Integrity** — claim verification status (13 verified / 2 estimate / 21 unverified) and honest gaps
 
 ## 📊 What This Dashboard Shows
 
@@ -133,16 +146,21 @@ GitHub Pages rebuilds automatically in 1-2 minutes.
 ```
 site/
 ├── index.html                 # Main dashboard HTML
+├── explain.html               # Story-driven explainer page (threat cards, charts, decision)
 ├── favicon.svg                # Site favicon
 ├── assets/
 │   ├── css/
-│   │   └── styles.css         # All styling (CSS variables, dark mode, print)
-│   └── js/
-│       └── dashboard.js       # All logic (data loading, charts, updates)
+│   │   ├── styles.css         # Dashboard styling (design tokens, dark mode, print)
+│   │   └── explainer.css      # Explainer page styling
+│   ├── js/
+│   │   ├── dashboard.js       # Dashboard logic (data loading, charts, updates)
+│   │   └── explainer.js       # Explainer logic (threat/decision charts)
+│   └── img/                   # Generated research figures (Monte Carlo, Bayesian)
 ├── data/
 │   ├── monte_carlo_analysis.json  # Structured analysis results
 │   ├── monte_carlo_results.csv    # Sampled simulation data (1,500 of 10,000 rows)
-│   └── bayesian_decision.json     # Bayesian decision proposal results (compact export)
+│   ├── bayesian_decision.json     # Bayesian decision proposal results (compact export)
+│   └── threat-profiles.json       # Verified threat specs (CSIS, retrieved 2026-08-29)
 ├── README.md                  # This file
 └── DEPLOYMENT.md              # Deployment guide
 ```

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explainer — Ukraine Missile Defense Research</title>
+    <meta name="description" content="An explanation of the Ukraine missile defense research: threat landscape, cost economics, Monte Carlo and Bayesian analyses, and the recommended long-term defense portfolio.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="assets/css/explainer.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ============ NAV ============ -->
+    <nav class="topnav" aria-label="Site navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="explain.html">🛡️ Missile Defense Research</a>
+            <div class="nav-links">
+                <a href="explain.html" class="active" aria-current="page">Explainer</a>
+                <a href="index.html">📊 Simulation Dashboard</a>
+                <a href="https://github.com/tobias-weiss-ai-xr/open-rocket-defense-system-research" target="_blank" rel="noopener">Source &amp; Data</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- ============ HERO ============ -->
+        <section class="hero">
+            <div class="container">
+                <p class="eyebrow">Independent research · 2026 · Bayesian + Monte Carlo simulation</p>
+                <h1>How should Ukraine defend against Russian missiles?</h1>
+                <p class="lead">
+                    Not with a single silver-bullet weapon system. The evidence from 10,000 probabilistic
+                    simulations and a 20,000-scenario Bayesian decision analysis points to a <em>portfolio</em>:
+                    passive protection first, an active layer traded like insurance, and expensive interceptors
+                    reserved for the targets that justify them.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-num" id="hs-passive-cpl">—</span>
+                        <span class="hero-label">cost per life saved, passive-first strategy</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-num" id="hs-passive-pct">—</span>
+                        <span class="hero-label">share of scenarios where passive-first is cheapest</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-num" id="hs-hybrid-pct">—</span>
+                        <span class="hero-label">share of scenarios where the hybrid layer saves the most lives</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a class="btn btn-primary" href="#decision">Jump to the decision</a>
+                    <a class="btn btn-ghost" href="#threats">Start from the threat</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SECTION: THE PROBLEM ============ -->
+        <section id="problem" class="section">
+            <div class="container">
+                <h2><span class="sec-num">01</span> The problem</h2>
+                <p class="section-lead">
+                    Russia attacks Ukrainian cities with a mixed missile and drone arsenal, from hypersonic
+                    ballistic missiles to cheap one-way attack drones. Each threat class behaves differently,
+                    and no single air-defense system can stop all of them.
+                </p>
+                <div class="callout callout-key">
+                    <strong>The core tension:</strong> a Mach 10 ballistic missile (Kinzhal) is effectively
+                    unhittable by any Ukraine-deployable interceptor, while a $48–193K Shahed drone can be
+                    shot down — but only if the interceptor costs less than the drone attacks it is buying off.
+                    Defenders must therefore decide <em>what is worth shooting at</em>.
+                </div>
+
+                <div id="threats" class="threat-grid">
+
+                    <!-- Kinzhal -->
+                    <article class="threat-card">
+                        <div class="threat-head">
+                            <h3>Kinzhal</h3>
+                            <span class="threat-tag tag-hypersonic">Hypersonic ballistic</span>
+                        </div>
+                        <div class="threat-specs">
+                            <div><span class="spec-k">Speed</span><span class="spec-v">Mach 10 <small>(accelerates from Mach 4)</small></span></div>
+                            <div><span class="spec-k">Range</span><span class="spec-v">1,500–2,000 km</span></div>
+                            <div><span class="spec-k">Warhead</span><span class="spec-v">480 kg, conventional or nuclear</span></div>
+                            <div><span class="spec-k">Unit cost</span><span class="spec-v">~$12M <span class="tag-soft">estimate</span></span></div>
+                            <div><span class="spec-k">Source</span><span class="spec-v">CSIS · retrieved 2026-08-29</span></div>
+                        </div>
+                        <p class="threat-note">Reached Mach 10 only in terminal phase; atmospheric interception against the re-entry
+                        vehicle is beyond deployed Ukrainian systems. <strong>Belongs to the “don’t shoot” class.</strong></p>
+                    </article>
+
+                    <!-- Iskander -->
+                    <article class="threat-card">
+                        <div class="threat-head">
+                            <h3>Iskander</h3>
+                            <span class="threat-tag tag-ballistic">Short-range ballistic</span>
+                        </div>
+                        <div class="threat-specs">
+                            <div><span class="spec-k">Speed</span><span class="spec-v">~Mach 6 <span class="tag-soft">unverified</span></span></div>
+                            <div><span class="spec-k">Range</span><span class="spec-v">400–500 km (export 280)</span></div>
+                            <div><span class="spec-k">Warhead</span><span class="spec-v">480–700 kg HE/submunitions/EPW</span></div>
+                            <div><span class="spec-k">CEP</span><span class="spec-v">200 m inertial / 50 m GLONASS / 10–20 m optical</span></div>
+                            <div><span class="spec-k">Source</span><span class="spec-v">CSIS · retrieved 2026-08-29</span></div>
+                        </div>
+                        <p class="threat-note">Near-identical terminal problem to Kinzhal. Don’t chase the warhead —
+                        <strong>intercept the launcher or blunt the effect</strong> (warning + shelter).</p>
+                    </article>
+
+                    <!-- Kalibr -->
+                    <article class="threat-card">
+                        <div class="threat-head">
+                            <h3>Kalibr (3M-14)</h3>
+                            <span class="threat-tag tag-cruise">Subsonic cruise</span>
+                        </div>
+                        <div class="threat-specs">
+                            <div><span class="spec-k">Speed</span><span class="spec-v">subsonic (Mach 0.8); 3M-54 only has ~300 km supersonic terminal</span></div>
+                            <div><span class="spec-k">Range</span><span class="spec-v">1,500–2,500 km</span></div>
+                            <div><span class="spec-k">Warhead</span><span class="spec-v">450 kg HE (possibly nuclear-capable)</span></div>
+                            <div><span class="spec-k">Unit cost</span><span class="spec-v">~$3M <span class="tag-soft">estimate</span></span></div>
+                            <div><span class="spec-k">Source</span><span class="spec-v">CSIS · retrieved 2026-08-29</span></div>
+                        </div>
+                        <p class="threat-note">Slow and predictable — a <strong>high-value target for active defense</strong>. This is where
+                        interceptors earn their money.</p>
+                    </article>
+
+                    <!-- Kh-101 -->
+                    <article class="threat-card">
+                        <div class="threat-head">
+                            <h3>Kh-101 / Kh-102</h3>
+                            <span class="threat-tag tag-cruise">Subsonic cruise</span>
+                        </div>
+                        <div class="threat-specs">
+                            <div><span class="spec-k">Speed</span><span class="spec-v">Mach 0.58–0.8</span></div>
+                            <div><span class="spec-k">Range</span><span class="spec-v">2,500–2,800 km</span></div>
+                            <div><span class="spec-k">Warhead</span><span class="spec-v">450 kg HE (Kh-101); 250 kt nuclear (Kh-102)</span></div>
+                            <div><span class="spec-k">Unit cost</span><span class="spec-v">~$2.5M <span class="tag-soft">estimate</span></span></div>
+                            <div><span class="spec-k">Source</span><span class="spec-v">CSIS · retrieved 2026-08-29</span></div>
+                        </div>
+                        <p class="threat-note">Like Kalibr: slow cruise missile, launched in volleys from aircraft far beyond the
+                        front. <strong>Also a strong active-defense target.</strong></p>
+                    </article>
+
+                    <!-- Shahed -->
+                    <article class="threat-card">
+                        <div class="threat-head">
+                            <h3>Shahed-136</h3>
+                            <span class="threat-tag tag-drone">Loitering munition</span>
+                        </div>
+                        <div class="threat-specs">
+                            <div><span class="spec-k">Speed</span><span class="spec-v">~185 km/h</span></div>
+                            <div><span class="spec-k">Range</span><span class="spec-v">970–1,500 km</span></div>
+                            <div><span class="spec-k">Warhead</span><span class="spec-v">40 kg; mass 200–240 kg</span></div>
+                            <div><span class="spec-k">Unit cost</span><span class="spec-v">≈$193K procured / $48–80K domestic <span class="tag-soft">corrected</span></span></div>
+                            <div><span class="spec-k">Source</span><span class="spec-v">Wikipedia aggregating CSIS/Reuters/leaked docs</span></div>
+                        </div>
+                        <p class="threat-note">Launched in mass waves to overwhelm defenses and exhaust expensive interceptors.
+                        <strong>Must be countered cheaply and in volume</strong> — gun/C-RAM, small drones, EW.</p>
+                    </article>
+
+                </div>
+
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>Speed compared</h3>
+                        <canvas id="chartSpeed" aria-label="Bar chart of threat speeds" role="img"></canvas>
+                        <p class="chart-caption">Ballistic threats are many times faster than cruise missiles and drones —
+                        which is exactly why interception becomes physically impossible for them.</p>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Warhead mass</h3>
+                        <canvas id="chartWarhead" aria-label="Bar chart of warhead masses" role="img"></canvas>
+                        <p class="chart-caption">Ballistic warheads carry 10× the explosive mass of a Shahed — the cost of a miss
+                        (or a fake alert) is not symmetric across classes.</p>
+                    </div>
+                    <div class="chart-card chart-wide">
+                        <h3>Cost per incoming threat vs. typical intercept options</h3>
+                        <canvas id="chartCostAsym" aria-label="Bar chart of cost asymmetry" role="img"></canvas>
+                        <p class="chart-caption">
+                            The <em>exchange-ratio</em> problem: if a $4M Patriot interceptor shoots at a $48–193K Shahed, the
+                            defender loses 20:1 to 80:1 on that engagement. Unit costs for missiles and interceptors remain
+                            <span class="tag-soft">estimates</span> — see the sources section. Only verified Shahed costs are shown with confidence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SECTION: WHY SIMULATION ============ -->
+        <section id="method" class="section section-alt">
+            <div class="container">
+                <h2><span class="sec-num">02</span> Why simulate instead of guess?</h2>
+                <p class="section-lead">
+                    Every number in this research is uncertain: missile unit costs have no reliable public source;
+                    interception probabilities are rarely observed; casualty rates per leak depend on timing and
+                    shelter behavior. Point estimates hide that uncertainty. Simulation makes it explicit.
+                </p>
+                <div class="method-grid">
+                    <div class="method-card">
+                        <h3>📐 Monte Carlo (10,000 runs)</h3>
+                        <p>Draws capital costs, AI accuracy, network availability, EW effectiveness and daily threat rates
+                        from statistical distributions, then records cost, hit probability, lives saved and failure risk
+                        for every run. Output: the <em>distribution</em> of outcomes, not one fake-exact number.</p>
+                        <p class="method-metric"><strong>0%</strong> of runs met the AI system’s 60% hit-rate target
+                        <span class="tag-soft">key result</span></p>
+                    </div>
+                    <div class="method-card">
+                        <h3>🎲 Bayesian decision analysis (20,000 paired scenarios)</h3>
+                        <p>Compares five competing defense strategies on the <em>same</em> threat scenarios (paired draws),
+                        using Beta posteriors for interception probability, Gamma priors for costs and Gamma-Poisson for
+                        threat flows, over a discounted 10-year horizon. Output: honest posterior probabilities and
+                        cost-per-life HDIs for every strategy.</p>
+                        <p class="method-metric"><strong>Paired design</strong> isolates strategy differences from shared
+                        uncertainty</p>
+                    </div>
+                    <div class="method-card">
+                        <h3>🔎 Where doubt remains</h3>
+                        <p>A claim registry tracks all 36 quantitative claims with status. As of the last audit:
+                        <strong>13 verified</strong> against primary sources, <strong>2 estimates</strong>, and
+                        <strong>21 unverified</strong>. Absolute numbers carry wide uncertainty; rankings are far more
+                        robust because comparisons are paired.</p>
+                        <p class="method-metric"><a href="#sources" class="btn btn-ghost btn-sm">See the full registry ↓</a></p>
+                    </div>
+                </div>
+
+                <div class="figure-grid">
+                    <figure>
+                        <img src="assets/img/monte_carlo_visualization.png"
+                             alt="Monte Carlo dashboard: cost and hit-probability distributions, failure rate and system comparison">
+                        <figcaption>Fig 1 — Monte Carlo results. The AI system fails its target in 100% of runs, and is
+                        never cost-competitive with shelters.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/bayesian_decision_visualization.png"
+                             alt="Six-panel Bayesian decision visualization comparing five defense strategies">
+                        <figcaption>Fig 2 — Bayesian decision visualization. Passive-first dominates cost-effectiveness;
+                        the hybrid layer wins lives in the surge scenarios.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SECTION: THE DECISION ============ -->
+        <section id="decision" class="section">
+            <div class="container">
+                <h2><span class="sec-num">03</span> The decision: five strategies, two winners</h2>
+                <p class="section-lead">
+                    Five coherent strategies were costed and simulated over 10 years. The results separate into a
+                    clear pattern — the portfolio beats the single pick.
+                </p>
+
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Strategy</th>
+                                <th>What it buys</th>
+                                <th>Capital</th>
+                                <th>Deploy</th>
+                                <th>Lives saved <small>(expected)</small></th>
+                                <th>Cost / life <small>(median)</small></th>
+                                <th>P(cheapest)</th>
+                                <th>P(most lives)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="decision-table"></tbody>
+                    </table>
+                </div>
+                <p class="chart-caption">
+                    P(cheapest) = share of the 20,000 paired scenarios in which the strategy had the lowest cost per life
+                    saved; P(most lives) = share in which it saved the most lives. Values from the current run, generated
+                    2026-08-29.
+                </p>
+
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>Median cost per life saved</h3>
+                        <canvas id="chartCpl" aria-label="Bar chart of cost per life saved for five strategies" role="img"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Probability of being best</h3>
+                        <canvas id="chartBest" aria-label="Grouped bar chart of probability of being best" role="img"></canvas>
+                    </div>
+                </div>
+
+                <div class="callout callout-decision" id="recommendation">
+                    <h3>✅ Recommended portfolio (ordered build)</h3>
+                    <div class="phase-list">
+                        <div class="phase phase-1">
+                            <span class="phase-pill">PHASE 1 · 0–6 MONTHS</span>
+                            <h4>Passive-first layer — $0.6–1B</h4>
+                            <p>Mass early-warning network + shelters + basic command &amp; control. Protects against
+                            <em>every</em> threat class, including unhittable Kinzhal/Iskander. Deployable in ~6 months,
+                            cheapest per life saved in ~100% of scenarios.</p>
+                        </div>
+                        <div class="phase phase-2">
+                            <span class="phase-pill">PHASE 2 · 6–18 MONTHS</span>
+                            <h4>Conditional insurance — cruise layer + counter-drone + deception</h4>
+                            <p>Adds IRIS-T/NASAMS for cruise missiles, C-RAM/Gepard and small-drone interceptors for
+                            Shahed waves, plus deception. Buys a ~37% chance of saving ~39,000 additional lives exactly
+                            when the threat surges. Gate on observed escalation.</p>
+                        </div>
+                        <div class="phase phase-3">
+                            <span class="phase-pill">TARGETED · GATE-BASED</span>
+                            <h4>High-end terminal defense — critical nodes only</h4>
+                            <p>Patriot/SAMP-T batteries only around power, rail and command nodes — never city-wide.
+                            At ~$198K/life it is the worst city-wide option, but irreplaceable at a handful of nodes.</p>
+                        </div>
+                        <div class="phase phase-rd">
+                            <span class="phase-pill">PARALLEL · R&amp;D ONLY</span>
+                            <h4>AI-enabled distributed kinetic system — funded research</h4>
+                            <p>Prior Monte Carlo shows 0% chance of meeting the 60% hit-rate target; Bayesian analysis
+                            confirms it is dominated under every posterior. Keep as a research hedge with 18/30-month
+                            decision gates — never primary.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout callout-evsi">
+                    <h3>🔬 What new information is actually worth buying?</h3>
+                    <p>
+                        Perfect information about which strategy is best would leave the mean cost-per-life essentially
+                        unchanged (<strong>~0%</strong> improvement) — passive-first wins cost so decisively that oracle
+                        knowledge adds nothing. It could add only ~3.7% more lives saved. The highest-value data to
+                        collect is therefore <strong>not more system-cost trivia but threat-rate trends and real
+                        shelter-utilization rates</strong>, which decide when to trigger Phase 2.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SECTION: SOURCES ============ -->
+        <section id="sources" class="section section-alt">
+            <div class="container">
+                <h2><span class="sec-num">04</span> Integrity of the numbers</h2>
+                <p class="section-lead">
+                    No figure on this page is fabricated. Each quantitative claim carries a status, a source organization
+                    and a retrieval date in the claim registry. Here is the summary — and the honest gaps.
+                </p>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>Claim verification status</h3>
+                        <canvas id="chartClaims" aria-label="Donut chart of claim verification status" role="img"></canvas>
+                    </div>
+                    <div class="chart-card chart-wide">
+                        <h3>What remains unverified</h3>
+                        <ul class="gap-list">
+                            <li><strong>All missile unit costs</strong> (Kinzhal $12M, Iskander $6M, Kalibr $3M, Kh-101 $2.5M) —
+                            no reliable public source; marked <span class="tag-soft">estimate</span>.</li>
+                            <li><strong>Interceptor costs</strong> (Patriot $4M, Gepard ~$1K, Iron Dome ~$50K) — retail/unverified.</li>
+                            <li><strong>Casualties per leaked warhead</strong> (~100 per Kinzhal in the model) — an
+                            assumption driving absolute lives-saved magnitude, not the rankings.</li>
+                            <li><strong>Iskander speed</strong> (Mach 6-7) — not on the CSIS page.</li>
+                            <li><strong>All PERF-* and SIM-* claims</strong> (AI accuracy, network availability, daily
+                            rates) — model assumptions surfaced for scrutiny.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sources-actions">
+                    <a class="btn btn-primary" href="https://github.com/tobias-weiss-ai-xr/open-rocket-defense-system-research/blob/main/sources/REFERENCES.csv" target="_blank" rel="noopener">📄 Claim registry (REFERENCES.csv)</a>
+                    <a class="btn btn-ghost" href="https://github.com/tobias-weiss-ai-xr/open-rocket-defense-system-research/blob/main/sources/VERIFIED-2026-08-29.md" target="_blank" rel="noopener">✅ Verification report</a>
+                    <a class="btn btn-ghost" href="index.html">📊 Go to the interactive dashboard</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p><a href="https://github.com/tobias-weiss-ai-xr/open-rocket-defense-system-research" target="_blank" rel="noopener">📁 Open Rocket Defense System Research · GitHub</a></p>
+            <p class="foot-note">Independent analysis. All claims sourced and statused in <code>sources/REFERENCES.csv</code>.
+            Monte Carlo (10,000 runs) + Bayesian decision analysis (20,000 paired scenarios).</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/explainer.js"></script>
+</body>
+</html>

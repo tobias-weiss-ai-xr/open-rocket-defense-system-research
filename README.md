@@ -21,12 +21,17 @@ Research project identifying cost-effective alternatives to expensive missile de
 - **Interactive dashboard**: [site/](site/index.html) (GitHub Pages)
 
 ## GitHub Pages Info Site
-An interactive dashboard visualizes all the Monte Carlo statistics at [`site/index.html`](site/index.html).
+Two linked pages are published at
+[`tobias-weiss-ai-xr.github.io/open-rocket-defense-system-research/`](https://tobias-weiss-ai-xr.github.io/open-rocket-defense-system-research/):
 
-**To publish as `<username>.github.io/open-rocket-defense-system-research/`:**
-1. Commit the `site/` directory
-2. GitHub → Settings → Pages → Source: `main` branch, `/site` folder
-3. Save (rebuilds in 1-2 min)
+- **Explainer** ([`site/explain.html`](site/explain.html)) — the story-driven page: threat landscape with
+  verified threat cards, speed/warhead/cost-asymmetry charts, why we simulate, Monte Carlo + Bayesian decision
+  methods, the recommended portfolio, and the claim-verification audit.
+- **Dashboard** ([`site/index.html`](site/index.html)) — interactive Monte Carlo statistics and the
+  Bayesian decision-proposal section.
+
+**To publish/refresh:** push to `main`; GitHub Actions deploys `site/*` automatically (see
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)).
 
 **To update with new simulation data:**
 ```bash
@@ -36,7 +41,9 @@ cp research/monte_carlo_results.csv site/data/
 git add site/data && git commit -m "Update simulation data" && git push
 ```
 
-See [`site/README.md`](site/README.md) and [`site/DEPLOYMENT.md`](site/DEPLOYMENT.md) for full details.
+The data files are published alongside the site (see `site/data/`); refresh them the same way whenever
+analysis outputs change. See [`site/README.md`](site/README.md) and [`site/DEPLOYMENT.md`](site/DEPLOYMENT.md)
+for full details.
 
 ## Project Structure
 ```

@@ -2,8 +2,8 @@ claim_id,category,claim,value_in_repo,status,source_org,source_url,date,confiden
 THR-01,threat,Kinzhal speed,Mach 10+,VERIFIED 2026-08-29,CSIS Missile Threat,https://missilethreat.csis.org/missile/kinzhal/,2026-08-29,HIGH,"Accelerates to Mach 4; up to Mach 10 (12,350 km/h) per CSIS"
 THR-02,threat,Kinzhal range,2000-2500 km,VERIFIED 2026-08-29,CSIS Missile Threat,https://missilethreat.csis.org/missile/kinzhal/,2026-08-29,HIGH,CORRECTED to 1500-2000 km (3000 km on Tu-22M3 per TASS 2018)
 THR-03,threat,Kinzhal warhead,400-500 kg,VERIFIED 2026-08-29,CSIS Missile Threat,https://missilethreat.csis.org/missile/kinzhal/,2026-08-29,HIGH,CORRECTED to 480 kg; length 8m diameter 1m weight ~4300 kg
-THR-04,threat,Kinzhal cost,~$10-15M,ESTIMATE,,, ,,"No reliable public unit cost - keep as estimate"
-THR-05,threat,Iskander speed,Mach 6-7,UNVERIFIED,,, ,,"Not stated on CSIS page; from other reporting"
+THR-04,threat,Kinzhal cost,~$10-15M,ESTIMATE,,, ,,No reliable public unit cost - keep as estimate
+THR-05,threat,Iskander speed,Mach 6-7,UNVERIFIED,,, ,,Not stated on CSIS page; from other reporting
 THR-06,threat,Iskander range,500 km,VERIFIED 2026-08-29,CSIS Missile Threat,https://missilethreat.csis.org/missile/ss-26-2/,2026-08-29,HIGH,400-500 km (export 9M720: 280 km); CEP 200m/50m/10-20m; payload 480-700 kg
 THR-07,threat,Kalibr speed,Mach 2.5-3,VERIFIED 2026-08-29,CSIS Missile Threat,https://missilethreat.csis.org/missile/ss-n-30a/,2026-08-29,MEDIUM,CORRECTED: 3M-14 is subsonic turbojet; supersonic only 3M-54 terminal
 THR-08,threat,Kalibr range,1500-2500 km,VERIFIED 2026-08-29,CSIS Missile Threat,https://missilethreat.csis.org/missile/ss-n-30a/,2026-08-29,HIGH,Confirmed 1500-2500 km
@@ -14,24 +14,24 @@ THR-12,threat,Kh-101 warhead,400 kg,VERIFIED 2026-08-29,CSIS Missile Threat,http
 THR-13,threat,Shahed-136 speed,~185 km/h,VERIFIED 2026-08-29,Wikipedia (aggregates CSIS/Reuters),https://en.wikipedia.org/wiki/HESA_Shahed_136,2026-08-29,MEDIUM,Comparable FLM-136: 194 km/h max; class ~185 km/h
 THR-14,threat,Shahed-136 range,1000-2000 km,VERIFIED 2026-08-29,Wikipedia (aggregates),https://en.wikipedia.org/wiki/HESA_Shahed_136,2026-08-29,MEDIUM,970-1500 km; some est. to 2000-2500 km; mass 200-240 kg
 THR-15,threat,Shahed-136 cost,$20-50K,VERIFIED 2026-08-29,Wikipedia/leaked docs/RUSI,https://en.wikipedia.org/wiki/HESA_Shahed_136,2026-08-29,HIGH,CORRECTED: 2022 est $20-50K; leaked docs $193K to RU (6000 order); RU domestic $48-80K 2024
-THR-16,threat,casualties per unanswered Kinzhal,~100 avg,ESTIMATE,,, ,,"Modeling parameter - no public source; sensitivity-test"
-COST-01,cost,Patriot battery cost,~$1.5B,UNVERIFIED,,, ,,"CSIS Missile Defense Project; US budget docs"
-COST-02,cost,PAC-3 MSE interceptor,$4M/shot,UNVERIFIED,,, ,,"Lockheed Martin / MDA budget"
-COST-03,cost,Gepard per engagement,~$1,000,UNVERIFIED,,, ,,"German MoD support lists; ammo pricing"
-COST-04,cost,Iron Dome interceptor,~$50K,UNVERIFIED,,, ,,"Rafael fact sheets"
-COST-05,cost,C-RAM per engagement,$750,UNVERIFIED,,, ,,"US Army C-RAM program docs"
-COST-06,cost,ZU-23-2 per engagement,$200,UNVERIFIED,,, ,,"23mm ammo pricing"
-COST-07,cost,EW jamming per engagement,$10,UNVERIFIED,,, ,,"Estimate - hardest to source"
-COST-08,cost,HELIOS laser cost,$10-20M,UNVERIFIED,,, ,,"US Navy PEO IWS"
-COST-09,cost,Iron Beam laser cost,$20-30M,UNVERIFIED,,, ,,"Rafael disclosures"
-COST-10,cost,PHaL laser cost,$15-25M,UNVERIFIED,,, ,,"MBDA press"
-COST-11,cost,Ukrainian 50kW laser cost,$5-10M,UNVERIFIED,,, ,,"Ukrainian MoD claims 2024-25"
-PERF-01,performance,Patriot vs Kinzhal intercepts,few confirmed,UNVERIFIED,,, ,,"Ukrainian AF Command; Pentagon statements"
-PERF-02,performance,Kinzhal engagement window,~30s,UNVERIFIED,,, ,,"Derived from radar specs - document derivation"
-PERF-03,performance,shelter casualty reduction,90%+,UNVERIFIED,,, ,,"Civil-defense effectiveness lit; Israeli HFC studies"
-SIM-01,simulation,sensor node cost,$100K-1M,UNVERIFIED,,, ,,"Commercial radar/EO-IR pricing"
-SIM-02,simulation,interceptor node cost,$2M-10M,UNVERIFIED,,, ,,"From COST-* sources"
-SIM-03,simulation,AI dev cost,$50-300M,UNVERIFIED,,, ,,"Comparable defense-software programs"
-SIM-04,simulation,daily Kinzhal rate,median 50,UNVERIFIED,,, ,,"Ukrainian AF daily intercept summaries"
-SIM-05,simulation,network availability,beta(8,2),UNVERIFIED,,, ,,"Mesh-network field studies - assumption"
-SIM-06,simulation,Patriot baseline hit rate,0.4,UNVERIFIED,,, ,,"From PERF-01 claims"
+THR-16,threat,casualties per unanswered Kinzhal,~100 avg,ESTIMATE,,, ,,Modeling parameter - no public source; sensitivity-test
+COST-01,cost,Patriot battery cost,~$1.5B,UNVERIFIED,,, ,,CSIS Missile Defense Project; US budget docs
+COST-02,cost,PAC-3 MSE interceptor,$4M/shot,UNVERIFIED,,, ,,Lockheed Martin / MDA budget
+COST-03,cost,"Gepard per engagement","~$1,000",UNVERIFIED,,, ,,"German MoD support lists; ammo pricing"
+COST-04,cost,Iron Dome interceptor,~$50K,UNVERIFIED,,, ,,Rafael fact sheets
+COST-05,cost,C-RAM per engagement,$750,UNVERIFIED,,, ,,US Army C-RAM program docs
+COST-06,cost,ZU-23-2 per engagement,$200,UNVERIFIED,,, ,,23mm ammo pricing
+COST-07,cost,EW jamming per engagement,$10,UNVERIFIED,,, ,,Estimate - hardest to source
+COST-08,cost,HELIOS laser cost,$10-20M,UNVERIFIED,,, ,,US Navy PEO IWS
+COST-09,cost,Iron Beam laser cost,$20-30M,UNVERIFIED,,, ,,Rafael disclosures
+COST-10,cost,PHaL laser cost,$15-25M,UNVERIFIED,,, ,,MBDA press
+COST-11,cost,Ukrainian 50kW laser cost,$5-10M,UNVERIFIED,,, ,,Ukrainian MoD claims 2024-25
+PERF-01,performance,Patriot vs Kinzhal intercepts,few confirmed,UNVERIFIED,,, ,,Ukrainian AF Command; Pentagon statements
+PERF-02,performance,Kinzhal engagement window,~30s,UNVERIFIED,,, ,,Derived from radar specs - document derivation
+PERF-03,performance,shelter casualty reduction,90%+,UNVERIFIED,,, ,,Civil-defense effectiveness lit; Israeli HFC studies
+SIM-01,simulation,sensor node cost,$100K-1M,UNVERIFIED,,, ,,Commercial radar/EO-IR pricing
+SIM-02,simulation,interceptor node cost,$2M-10M,UNVERIFIED,,, ,,From COST-* sources
+SIM-03,simulation,AI dev cost,$50-300M,UNVERIFIED,,, ,,Comparable defense-software programs
+SIM-04,simulation,daily Kinzhal rate,median 50,UNVERIFIED,,, ,,Ukrainian AF daily intercept summaries
+SIM-05,simulation,"network availability","beta(8,2)",UNVERIFIED,,, ,,"Mesh-network field studies - assumption"
+SIM-06,simulation,Patriot baseline hit rate,0.4,UNVERIFIED,,, ,,From PERF-01 claims
