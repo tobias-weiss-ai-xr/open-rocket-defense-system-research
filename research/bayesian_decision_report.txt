@@ -1,0 +1,95 @@
+==============================================================================
+DECISION PROPOSAL — BEST LONG-TERM DEFENSE (Bayesian decision analysis)
+Generated: 2026-08-29 08:52:01  |  draws: 20,000 paired scenarios  |  horizon: 10 yrs @ 5% discount
+==============================================================================
+
+1) EXPECTED PERFORMANCE (10-yr, discounted)
+------------------------------------------------------------------------------
+  [A] Passive-first (warning + shelters + basic C2)
+      lives saved:      391,820  (90% HDI 177,365-726,958)
+      cost       : $1,295,528,702  (90% HDI $636,703,510-2,133,892,221)
+      cost/life  : $     3,458  (90% HDI $1,321-8,455)
+  [D] Hybrid doctrine (passive first + cruise layer + counter-drone + deception)
+      lives saved:      379,288  (90% HDI 175,578-694,016)
+      cost       : $7,546,948,365  (90% HDI $5,477,174,100-9,924,147,952)
+      cost/life  : $    21,450  (90% HDI $9,998-44,546)
+  [B] Cruise-active (IRIS-T/NASAMS + C-RAM/Gepard + point defense)
+      lives saved:      224,706  (90% HDI 91,870-437,064)
+      cost       : $7,334,480,123  (90% HDI $5,710,199,807-9,125,504,607)
+      cost/life  : $    36,296  (90% HDI $16,006-82,004)
+  [C] AI-enabled distributed kinetic system (prior Monte Carlo)
+      lives saved:      181,647  (90% HDI 78,828-346,195)
+      cost       : $13,273,268,869  (90% HDI $10,009,581,687-16,866,203,401)
+      cost/life  : $    80,477  (90% HDI $36,430-173,258)
+  [E] High-end missile defense (Patriot/SAMP-T heavy)
+      lives saved:      213,591  (90% HDI 92,162-409,551)
+      cost       : $37,977,688,547  (90% HDI $31,334,900,917-45,221,068,289)
+      cost/life  : $   197,838  (90% HDI $89,886-419,392)
+
+2) PROBABILITY OF BEING BEST
+------------------------------------------------------------------------------
+  [A] Passive-first (warning + shelters + basic C2)
+      P(best cost/life) : 100.0%
+      P(most lives)     :  62.8%
+      P(best on both)   :  62.8%
+  [B] Cruise-active (IRIS-T/NASAMS + C-RAM/Gepard + point defense)
+      P(best cost/life) :   0.0%
+      P(most lives)     :   0.0%
+      P(best on both)   :   0.0%
+  [C] AI-enabled distributed kinetic system (prior Monte Carlo)
+      P(best cost/life) :   0.0%
+      P(most lives)     :   0.0%
+      P(best on both)   :   0.0%
+  [D] Hybrid doctrine (passive first + cruise layer + counter-drone + deception)
+      P(best cost/life) :   0.0%
+      P(most lives)     :  37.2%
+      P(best on both)   :   0.0%
+  [E] High-end missile defense (Patriot/SAMP-T heavy)
+      P(best cost/life) :   0.0%
+      P(most lives)     :   0.0%
+      P(best on both)   :   0.0%
+
+3) PAIRWISE COMPARISON — P(row beats column on cost-per-life)
+------------------------------------------------------------------------------
+     A     B     C     D     E  
+  A     —    100.0%  100.0%  100.0%  100.0% 
+  B    0.0%     —     98.5%    4.0%  100.0% 
+  C    0.0%    1.5%     —      0.0%   99.3% 
+  D    0.0%   96.0%  100.0%     —    100.0% 
+  E    0.0%    0.0%    0.7%    0.0%     —   
+
+4) SENSITIVITY TO KEY UNVERIFIED PARAMETERS
+------------------------------------------------------------------------------
+  All PK and flow priors are [estimate] where noted in sources/REFERENCES.csv.
+  Paired design (same threat scenario across strategies per draw) means
+  RANKINGS are driven by strategy differences, not by shared uncertainty.
+
+5) VALUE OF INFORMATION (oracle vs current best)
+------------------------------------------------------------------------------
+  Current best (mean CPL): [A] $3,983/life
+  Oracle (always picks best draw): $3,983/life
+  -> CPL improvement from perfect information: 0.0%
+  -> lives-saved improvement from perfect information: 3.7%
+
+6) RECOMMENDED DECISION
+------------------------------------------------------------------------------
+  Best on cost-per-life : [A] Passive-first (warning + shelters + basic C2)
+  Best on lives saved   : [A] Passive-first (warning + shelters + basic C2)
+  Most robust (worst-case lives): [A] Passive-first (warning + shelters + basic C2)
+
+  FINDING 1 — Passive-first [A] is the cost-effectiveness bedrock:
+     wins lowest cost/life in ~100% of scenarios because it protects against
+     ALL threat classes (including unhittable Kinzhal/Iskander) at ~1/6 the
+     cost-per-life of the next best option, and it deploys in ~6 months.
+
+  FINDING 2 — Live-safety is contested: [D] Hybrid doctrine (passive first + cruise layer + counter-drone + deception) saves the most lives in 37% of scenarios, and in those scenarios it saves on average 39,356 MORE lives than [A]. This is the classic cost-vs-lives portfolio tension: in high-threat scenarios an active layer adds lives; in low-threat scenarios it's waste (and loses the cost advantage).
+
+  RECOMMENDATION — Adopt the PORTFOLIO that already contains the passive layer and adds the active one conditionally (ordered build):
+     PHASE 1 (months 0-6):   [A] passive layer — $0.6-1B, expected to save 391,820 lives at $3,458/life. This is the non-negotiable foundation.
+     PHASE 2 (months 6-18):  conditional insurance: add the active cruise layer + counter-drone + deception (the D increment). It roughly matches [A] on expected lives (379,288 vs 391,820) but buys a 37% chance of an extra 39,356 lives exactly when the threat surges — hedge, not baseline. Gate it on observed threat escalation.
+     PHASE 3 (gate-based):    keep AI-killer [C] as funded R&D only; deploy high-end missile defense [E] ONLY around critical national nodes (power, rail, command) — never city-wide (worst cost/life).
+
+------------------------------------------------------------------------------
+CONFLICT ANALYSIS:
+------------------------------------------------------------------------------
+  37.2% of draws pick a different option for cost vs. lives — meaning portfolio design (not single pick) matters if this is >~10%.

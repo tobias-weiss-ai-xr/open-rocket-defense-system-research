@@ -1,0 +1,171 @@
+{
+  "generated": "2026-08-29T08:52:01.038731",
+  "n_draws": 20000,
+  "horizon_years": 10,
+  "discount_rate": 0.05,
+  "summary": {
+    "ai_killer": {
+      "name": "AI-enabled distributed kinetic system (prior Monte Carlo)",
+      "expected_lives_saved": 181646.85409649153,
+      "hdi90_lives_saved": [
+        78828.42393915402,
+        346194.76392229175
+      ],
+      "expected_cost": 13273268868.93021,
+      "hdi90_cost": [
+        10009581687.095985,
+        16866203400.588133
+      ],
+      "cost_per_life_median": 80476.99001729823,
+      "cost_per_life_hdi90": [
+        36430.14314569473,
+        173258.25420466173
+      ],
+      "robustness_min_lives_10pct": 92593.62687962358
+    },
+    "cruise_active": {
+      "name": "Cruise-active (IRIS-T/NASAMS + C-RAM/Gepard + point defense)",
+      "expected_lives_saved": 224705.82187536973,
+      "hdi90_lives_saved": [
+        91869.94424500884,
+        437064.221640066
+      ],
+      "expected_cost": 7334480123.420333,
+      "hdi90_cost": [
+        5710199806.711838,
+        9125504607.042078
+      ],
+      "cost_per_life_median": 36295.58159694737,
+      "cost_per_life_hdi90": [
+        16005.770446802866,
+        82004.34977998883
+      ],
+      "robustness_min_lives_10pct": 109754.47241942877
+    },
+    "high_end": {
+      "name": "High-end missile defense (Patriot/SAMP-T heavy)",
+      "expected_lives_saved": 213590.66807227663,
+      "hdi90_lives_saved": [
+        92161.71304609008,
+        409551.4267507627
+      ],
+      "expected_cost": 37977688547.473526,
+      "hdi90_cost": [
+        31334900916.718918,
+        45221068288.75157
+      ],
+      "cost_per_life_median": 197838.03322794187,
+      "cost_per_life_hdi90": [
+        89886.05731032908,
+        419392.1367885952
+      ],
+      "robustness_min_lives_10pct": 108392.78605138758
+    },
+    "hybrid": {
+      "name": "Hybrid doctrine (passive first + cruise layer + counter-drone + deception)",
+      "expected_lives_saved": 379288.03575550136,
+      "hdi90_lives_saved": [
+        175577.50977514815,
+        694016.3640047865
+      ],
+      "expected_cost": 7546948364.581835,
+      "hdi90_cost": [
+        5477174099.9054785,
+        9924147952.438131
+      ],
+      "cost_per_life_median": 21450.199487977443,
+      "cost_per_life_hdi90": [
+        9997.729030355667,
+        44545.98503182811
+      ],
+      "robustness_min_lives_10pct": 204236.4238651257
+    },
+    "passive": {
+      "name": "Passive-first (warning + shelters + basic C2)",
+      "expected_lives_saved": 391819.71250455745,
+      "hdi90_lives_saved": [
+        177365.43534500065,
+        726957.7157029675
+      ],
+      "expected_cost": 1295528701.9046085,
+      "hdi90_cost": [
+        636703509.5502372,
+        2133892220.5316236
+      ],
+      "cost_per_life_median": 3458.047185409441,
+      "cost_per_life_hdi90": [
+        1320.6638669581603,
+        8454.839163272984
+      ],
+      "robustness_min_lives_10pct": 205388.3122669579
+    }
+  },
+  "pairwise_p_beat_on_cpl": {
+    "passive": {
+      "cruise_active": 1.0,
+      "ai_killer": 1.0,
+      "hybrid": 1.0,
+      "high_end": 1.0
+    },
+    "cruise_active": {
+      "passive": 0.0,
+      "ai_killer": 0.98545,
+      "hybrid": 0.04025,
+      "high_end": 0.99985
+    },
+    "ai_killer": {
+      "passive": 0.0,
+      "cruise_active": 0.01455,
+      "hybrid": 0.0,
+      "high_end": 0.9927
+    },
+    "hybrid": {
+      "passive": 0.0,
+      "cruise_active": 0.95975,
+      "ai_killer": 1.0,
+      "high_end": 1.0
+    },
+    "high_end": {
+      "passive": 0.0,
+      "cruise_active": 0.00015,
+      "ai_killer": 0.0073,
+      "hybrid": 0.0
+    }
+  },
+  "best_probability": {
+    "best_cost_per_life": {
+      "passive": 1.0,
+      "cruise_active": 0.0,
+      "ai_killer": 0.0,
+      "hybrid": 0.0,
+      "high_end": 0.0
+    },
+    "best_lives_saved": {
+      "passive": 0.62805,
+      "cruise_active": 0.0,
+      "ai_killer": 0.0,
+      "hybrid": 0.3717,
+      "high_end": 0.00025
+    },
+    "dominant_on_both": {
+      "passive": 0.62805,
+      "cruise_active": 0.0,
+      "ai_killer": 0.0,
+      "hybrid": 0.0,
+      "high_end": 0.0
+    }
+  },
+  "value_of_information": {
+    "current_best_strategy": "passive",
+    "current_best_mean_cpl": 3982.932800264066,
+    "oracle_mean_cpl": 3982.932800264066,
+    "cpl_improvement_from_oracle_pct": 0.0,
+    "current_best_lives": 391819.71250455745,
+    "oracle_lives": 406464.29537455586,
+    "lives_saved_improvement_from_oracle_pct": 3.73758195482012
+  },
+  "conflict_analysis": {
+    "pct_draws_where_best_cpl_differs_from_most_lives": 37.195
+  },
+  "proposal_text": "==============================================================================\nDECISION PROPOSAL \u2014 BEST LONG-TERM DEFENSE (Bayesian decision analysis)\nGenerated: 2026-08-29 08:52:01  |  draws: 20,000 paired scenarios  |  horizon: 10 yrs @ 5% discount\n==============================================================================\n\n1) EXPECTED PERFORMANCE (10-yr, discounted)\n------------------------------------------------------------------------------\n  [A] Passive-first (warning + shelters + basic C2)\n      lives saved:      391,820  (90% HDI 177,365-726,958)\n      cost       : $1,295,528,702  (90% HDI $636,703,510-2,133,892,221)\n      cost/life  : $     3,458  (90% HDI $1,321-8,455)\n  [D] Hybrid doctrine (passive first + cruise layer + counter-drone + deception)\n      lives saved:      379,288  (90% HDI 175,578-694,016)\n      cost       : $7,546,948,365  (90% HDI $5,477,174,100-9,924,147,952)\n      cost/life  : $    21,450  (90% HDI $9,998-44,546)\n  [B] Cruise-active (IRIS-T/NASAMS + C-RAM/Gepard + point defense)\n      lives saved:      224,706  (90% HDI 91,870-437,064)\n      cost       : $7,334,480,123  (90% HDI $5,710,199,807-9,125,504,607)\n      cost/life  : $    36,296  (90% HDI $16,006-82,004)\n  [C] AI-enabled distributed kinetic system (prior Monte Carlo)\n      lives saved:      181,647  (90% HDI 78,828-346,195)\n      cost       : $13,273,268,869  (90% HDI $10,009,581,687-16,866,203,401)\n      cost/life  : $    80,477  (90% HDI $36,430-173,258)\n  [E] High-end missile defense (Patriot/SAMP-T heavy)\n      lives saved:      213,591  (90% HDI 92,162-409,551)\n      cost       : $37,977,688,547  (90% HDI $31,334,900,917-45,221,068,289)\n      cost/life  : $   197,838  (90% HDI $89,886-419,392)\n\n2) PROBABILITY OF BEING BEST\n------------------------------------------------------------------------------\n  [A] Passive-first (warning + shelters + basic C2)\n      P(best cost/life) : 100.0%\n      P(most lives)     :  62.8%\n      P(best on both)   :  62.8%\n  [B] Cruise-active (IRIS-T/NASAMS + C-RAM/Gepard + point defense)\n      P(best cost/life) :   0.0%\n      P(most lives)     :   0.0%\n      P(best on both)   :   0.0%\n  [C] AI-enabled distributed kinetic system (prior Monte Carlo)\n      P(best cost/life) :   0.0%\n      P(most lives)     :   0.0%\n      P(best on both)   :   0.0%\n  [D] Hybrid doctrine (passive first + cruise layer + counter-drone + deception)\n      P(best cost/life) :   0.0%\n      P(most lives)     :  37.2%\n      P(best on both)   :   0.0%\n  [E] High-end missile defense (Patriot/SAMP-T heavy)\n      P(best cost/life) :   0.0%\n      P(most lives)     :   0.0%\n      P(best on both)   :   0.0%\n\n3) PAIRWISE COMPARISON \u2014 P(row beats column on cost-per-life)\n------------------------------------------------------------------------------\n     A     B     C     D     E  \n  A     \u2014    100.0%  100.0%  100.0%  100.0% \n  B    0.0%     \u2014     98.5%    4.0%  100.0% \n  C    0.0%    1.5%     \u2014      0.0%   99.3% \n  D    0.0%   96.0%  100.0%     \u2014    100.0% \n  E    0.0%    0.0%    0.7%    0.0%     \u2014   \n\n4) SENSITIVITY TO KEY UNVERIFIED PARAMETERS\n------------------------------------------------------------------------------\n  All PK and flow priors are [estimate] where noted in sources/REFERENCES.csv.\n  Paired design (same threat scenario across strategies per draw) means\n  RANKINGS are driven by strategy differences, not by shared uncertainty.\n\n5) VALUE OF INFORMATION (oracle vs current best)\n------------------------------------------------------------------------------\n  Current best (mean CPL): [A] $3,983/life\n  Oracle (always picks best draw): $3,983/life\n  -> CPL improvement from perfect information: 0.0%\n  -> lives-saved improvement from perfect information: 3.7%\n\n6) RECOMMENDED DECISION\n------------------------------------------------------------------------------\n  Best on cost-per-life : [A] Passive-first (warning + shelters + basic C2)\n  Best on lives saved   : [A] Passive-first (warning + shelters + basic C2)\n  Most robust (worst-case lives): [A] Passive-first (warning + shelters + basic C2)\n\n  FINDING 1 \u2014 Passive-first [A] is the cost-effectiveness bedrock:\n     wins lowest cost/life in ~100% of scenarios because it protects against\n     ALL threat classes (including unhittable Kinzhal/Iskander) at ~1/6 the\n     cost-per-life of the next best option, and it deploys in ~6 months.\n\n  FINDING 2 \u2014 Live-safety is contested: [D] Hybrid doctrine (passive first + cruise layer + counter-drone + deception) saves the most lives in 37% of scenarios, and in those scenarios it saves on average 39,356 MORE lives than [A]. This is the classic cost-vs-lives portfolio tension: in high-threat scenarios an active layer adds lives; in low-threat scenarios it's waste (and loses the cost advantage).\n\n  RECOMMENDATION \u2014 Adopt the PORTFOLIO that already contains the passive layer and adds the active one conditionally (ordered build):\n     PHASE 1 (months 0-6):   [A] passive layer \u2014 $0.6-1B, expected to save 391,820 lives at $3,458/life. This is the non-negotiable foundation.\n     PHASE 2 (months 6-18):  conditional insurance: add the active cruise layer + counter-drone + deception (the D increment). It roughly matches [A] on expected lives (379,288 vs 391,820) but buys a 37% chance of an extra 39,356 lives exactly when the threat surges \u2014 hedge, not baseline. Gate it on observed threat escalation.\n     PHASE 3 (gate-based):    keep AI-killer [C] as funded R&D only; deploy high-end missile defense [E] ONLY around critical national nodes (power, rail, command) \u2014 never city-wide (worst cost/life).\n\n------------------------------------------------------------------------------\nCONFLICT ANALYSIS:\n------------------------------------------------------------------------------\n  37.2% of draws pick a different option for cost vs. lives \u2014 meaning portfolio design (not single pick) matters if this is >~10%."
+}
