@@ -293,7 +293,7 @@ function buildDecisionCharts(d) {
     } catch (err) {
         console.error('Failed to load explainer data:', err.message);
         const note = document.createElement('p');
-        note.style.cssText = 'color:#b91c1c;background:#fee2e2;padding:16px;border-radius:10px;';
+        note.style.cssText = 'color:#7f1d1d;background:#fee2e2;padding:16px;border-radius:10px;';
         note.textContent = '⚠️ Could not load visualization data: ' + err.message;
         document.getElementById('problem').appendChild(note);
     }

@@ -76,8 +76,8 @@
     
     /* Text Colors */
     --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-muted: #94a3b8;
+    --text-secondary: #334155;
+    --text-muted: #475569;
     --text-white: #ffffff;
     --text-danger: var(--color-danger-700);
     --text-warning: var(--color-warning-700);
@@ -92,7 +92,7 @@
     --border-success: #86efac;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-800) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--color-primary-800) 0%, var(--color-primary-900) 100%);
     --gradient-danger: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
     --gradient-warning: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
     --gradient-success: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
@@ -246,7 +246,7 @@ a:hover {
 .critical-alert h1 {
     font-size: var(--text-3xl);
     font-weight: var(--font-extrabold);
-    color: var(--color-danger-700);
+    color: var(--color-danger-800);
     margin-bottom: var(--space-md);
     display: flex;
     align-items: center;
@@ -268,7 +268,7 @@ a:hover {
 .critical-alert .finding {
     font-size: var(--text-2xl);
     font-weight: var(--font-bold);
-    color: var(--color-danger-800);
+    color: var(--color-danger-900);
     margin: var(--space-lg) 0;
     text-align: center;
     line-height: var(--leading-tight);
@@ -291,9 +291,9 @@ a:hover {
 }
 
 .critical-alert .action {
-    background: var(--color-primary-600);
+    background: var(--color-primary-800);
     color: var(--text-white);
-    border-color: var(--color-primary-700);
+    border-color: var(--color-primary-800);
     font-weight: var(--font-semibold);
 }
 
@@ -369,20 +369,20 @@ a:hover {
     text-transform: uppercase;
     padding: 4px 10px;
     border-radius: var(--radius-full);
-    background: var(--color-primary-600);
+    background: var(--color-primary-800);
     color: var(--text-white);
 }
 
 .decision-banner-item.success .decision-pill {
-    background: var(--color-success-600);
+    background: var(--color-success-800);
 }
 
 .decision-banner-item.warning .decision-pill {
-    background: var(--color-warning-600);
+    background: var(--color-warning-800);
 }
 
 .decision-banner-item.danger .decision-pill {
-    background: var(--color-danger-600);
+    background: var(--color-danger-800);
 }
 
 /* ===================================================================
@@ -426,7 +426,7 @@ header .subtitle small {
 }
 
 .refresh-btn {
-    background: var(--color-primary-600);
+    background: var(--color-primary-800);
     color: var(--text-white);
     border: none;
     padding: var(--space-sm) var(--space-lg);
@@ -519,7 +519,7 @@ header .subtitle small {
 .error-box button {
     margin-top: var(--space-md);
     padding: var(--space-sm) var(--space-lg);
-    background: var(--color-primary-600);
+    background: var(--color-primary-800);
     color: white;
     border: none;
     border-radius: var(--radius-md);
@@ -630,10 +630,10 @@ header .subtitle small {
     font-size: 1.5rem;
 }
 
-.stat-value.danger { color: var(--color-danger-600); }
-.stat-value.warning { color: var(--color-warning-600); }
-.stat-value.success { color: var(--color-success-600); }
-.stat-value.primary { color: var(--color-primary-600); }
+.stat-value.danger { color: var(--color-danger-700); }
+.stat-value.warning { color: var(--color-warning-700); }
+.stat-value.success { color: var(--color-success-700); }
+.stat-value.primary { color: var(--color-primary-700); }
 
 .stat-label {
     font-size: var(--text-sm);
@@ -743,7 +743,7 @@ header .subtitle small {
 }
 
 .option-grade {
-    background: var(--color-success-500);
+    background: var(--color-success-800);
     color: var(--text-white);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
@@ -752,11 +752,11 @@ header .subtitle small {
 }
 
 .option-grade.warning {
-    background: var(--color-warning-500);
+    background: var(--color-warning-800);
 }
 
 .option-grade.danger {
-    background: var(--color-danger-500);
+    background: var(--color-danger-800);
 }
 
 .option-card p {
@@ -853,10 +853,6 @@ header .subtitle small {
     background: var(--color-gray-100);
 }
 
-:nth-child(even) {
-    background: transparent !important;
-}
-
 /* ===================================================================
    Recommendation Lists
    =================================================================== */
@@ -928,27 +924,27 @@ header .subtitle small {
 
 .tag.danger {
     background: var(--color-danger-100);
-    color: var(--color-danger-700);
+    color: var(--color-danger-900);
 }
 
 .tag.warning {
     background: var(--color-warning-100);
-    color: var(--color-warning-700);
+    color: var(--color-warning-900);
 }
 
 .tag.success {
     background: var(--color-success-100);
-    color: var(--color-success-700);
+    color: var(--color-success-900);
 }
 
 .tag.info {
     background: var(--color-primary-100);
-    color: var(--color-primary-700);
+    color: var(--color-primary-900);
 }
 
 .tag.critical {
-    background: var(--color-danger-200);
-    color: var(--color-danger-800);
+    background: var(--color-danger-100);
+    color: var(--color-danger-900);
     animation: pulse 2s infinite;
 }
 
@@ -971,12 +967,12 @@ header .subtitle small {
 }
 
 .btn-primary {
-    background: var(--color-primary-600);
+    background: var(--color-primary-800);
     color: var(--text-white);
 }
 
 .btn-primary:hover {
-    background: var(--color-primary-700);
+    background: var(--color-primary-900);
 }
 
 .btn-secondary {
@@ -1014,7 +1010,7 @@ header .subtitle small {
 }
 
 .footer a {
-    color: var(--color-primary-600);
+    color: var(--color-primary-800);
 }
 
 .footer a:hover {
