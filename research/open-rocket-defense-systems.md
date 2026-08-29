@@ -56,7 +56,7 @@ C-RAM is the military term for short-range defense against indirect fire (rocket
 | System (modified) | $10-15M |
 | Per engagement | $500-1,000 |
 | Per round | $50-100 |
-| **vs. Shahed drone ($30K)** | **300-600x cheaper** |
+| **vs. Shahed drone ($30K est → revised $48-193K)** | **2-100x cheaper** (revised 2026-08-29; see THR-15) |
 
 ### 2.4 Pros/Cons
 **Pros:**

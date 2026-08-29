@@ -11,36 +11,49 @@ Identify cost-effective alternatives to the Patriot system for protecting Ukrain
 
 ### 1.1 Kh-47M2 Kinzhal (Dagger)
 - **Type**: Hypersonic ballistic missile
-- **Speed**: Mach 10+ (~12,350 km/h)
-- **Range**: 2,000-2,500 km
-- **Cost**: ~$10-15 million per missile
-- **Warhead**: 400-500 kg conventional or nuclear
+- **Speed**: Accelerates to Mach 4 (~4,900 km/h) after launch, reaching up to Mach 10 (~12,350 km/h) *(THR-01, CSIS)*
+- **Range**: 1,500-2,000 km (up to ~3,000 km on Tu-22M3 per 2018 TASS) *(THR-02, CSIS)*
+- **Cost**: ~$10-15 million per missile *(THR-04, [estimate] - no reliable public source)*
+- **Warhead**: 480 kg conventional or nuclear *(THR-03, CSIS)*
+- **Dimensions**: Length 8 m, diameter 1 m, launch weight ~4,300 kg *(THR-03, CSIS)*
 - **Detection**: Difficult due to hypersonic speed
-- **Patriot effectiveness**: Limited - only a few confirmed intercepts
+- **Patriot effectiveness**: Limited - only a few confirmed intercepts *(PERF-01, unverified)*
+
+> **Source note:** Values verified 2026-08-29 against CSIS Missile Threat (missilethreat.csis.org/missile/kinzhal/). Range corrected from earlier draft (2,000-2,500 km → 1,500-2,000 km).
 
 ### 1.2 9K720 Iskander (SS-26 Stone)
 - **Type**: Short-range ballistic missile
-- **Speed**: Mach 6-7
-- **Range**: 500 km
-- **Cost**: ~$5-7 million per missile
-- **Warhead**: 500 kg
+- **Speed**: ~Mach 6-7 *(THR-05, [unverified] - not confirmed on CSIS page)*
+- **Range**: 400-500 km (export 9M720: 280 km) *(THR-06, CSIS)*
+- **Cost**: ~$5-7 million per missile *(THR-04, [estimate])*
+- **Warhead**: 480-700 kg payload; HE, submunition, earth-penetrator, thermobaric *(THR-06, CSIS)*
+- **Accuracy (CEP)**: 200 m inertial, 50 m GLONASS, 10-20 m optical seeker *(THR-06, CSIS)*
+- **In service**: 2006 *(THR-06, CSIS)*
 - **Patriot effectiveness**: Moderate - can be intercepted
 
-### 1.3 Kalibr (SS-N-27 Sizzler)
+> **Source note:** Verified 2026-08-29 against CSIS Missile Threat (missilethreat.csis.org/missile/ss-26-2/). Warhead corrected (500 kg → 480-700 kg payload).
+
+### 1.3 Kalibr (SS-N-27 Sizzler / 3M-14)
 - **Type**: Cruise missile (sea-launched)
-- **Speed**: Mach 2.5-3
-- **Range**: 1,500-2,500 km
-- **Cost**: ~$3-5 million per missile
-- **Warhead**: 200-450 kg
+- **Speed**: 3M-14 is a **subsonic turbojet** (repo earlier claimed Mach 2.5-3 — that applies only to the 3M-54 variant's ~300 km supersonic terminal sprint) *(THR-07, CSIS)*
+- **Range**: 1,500-2,500 km *(THR-08, CSIS)*
+- **Cost**: ~$3-5 million per missile *(THR-04, [estimate])*
+- **Warhead**: 450 kg HE, possibly nuclear-capable *(THR-09, CSIS)*
+- **In service**: 2015 *(THR-08, CSIS)*
 - **Patriot effectiveness**: Good - lower altitude, slower
+
+> **Source note:** Verified 2026-08-29 against CSIS Missile Threat (missilethreat.csis.org/missile/ss-n-30a/). Speed characterization corrected; warhead corrected (200-450 kg → 450 kg).
 
 ### 1.4 Kh-101/Kh-555
 - **Type**: Air-launched cruise missile
-- **Speed**: Subsonic
-- **Range**: 3,000-5,500 km
-- **Cost**: ~$2-3 million per missile
-- **Warhead**: 400 kg
+- **Speed**: Subsonic; cruising Mach 0.58, max Mach 0.8 (TRDD-50A turbofan) *(THR-10, CSIS)*
+- **Range**: 2,500-2,800 km reported (unconfirmed Russian MoD claim up to 4,500 km) *(THR-11, CSIS)*
+- **Cost**: ~$2-3 million per missile *(THR-04, [estimate])*
+- **Warhead**: 450 kg conventional (HE/fragmentation/submunition); Kh-102 carries 250 kt nuclear *(THR-12, CSIS)*
+- **In service**: 2012 *(THR-12, CSIS)*
 - **Patriot effectiveness**: Good - traditional cruise missile profile
+
+> **Source note:** Verified 2026-08-29 against CSIS Missile Threat (missilethreat.csis.org/missile/kh-101/). Range corrected (3,000-5,500 km → 2,500-2,800 km); warhead corrected (400 → 450 kg).
 
 ### 1.5 S-300/S-400 as Offense
 - Russia sometimes uses air defense missiles offensively
@@ -49,11 +62,16 @@ Identify cost-effective alternatives to the Patriot system for protecting Ukrain
 
 ### 1.6 Shahed/Geran-2 Drones
 - **Type**: Loitering munition/suicide drone
-- **Speed**: ~185 km/h
-- **Range**: 1,000-2,000 km
-- **Cost**: ~$20,000-50,000 per drone
+- **Speed**: ~185 km/h *(THR-13, Wikipedia-aggregated)*
+- **Range**: 970-1,500 km (some estimates to 2,000-2,500 km) *(THR-14, Wikipedia-aggregated)*
+- **Cost**: ~$20-50K (2022 estimate); **leaked Iranian docs show $193K/unit to Russia (6,000-unit order); Russian domestic ~$48-80K by 2024** *(THR-15, Wikipedia/leaked docs/RUSI)*
+- **Mass**: 200 kg (up to ~240 kg hardened variants) *(THR-14)*
 - **Warhead**: 10-50 kg
+- **Guidance**: GNSS + INS (teleoperation on later variants) *(THR-14)*
 - **Patriot effectiveness**: Overkill - extremely cost-ineffective
+- **⚠️ Cost-asymmetry implication**: The headline "133:1" ratio was based on the $30K estimate. With verified procurement costs the ratio is ~20:1 ($193K) to ~50-80:1 ($48-80K domestic), not 133:1.
+
+> **Source note:** Verified 2026-08-29 against Wikipedia HESA Shahed 136 (aggregating CSIS/Reuters/leaked-doc reporting).
 
 ---
 
@@ -96,12 +114,14 @@ Identify cost-effective alternatives to the Patriot system for protecting Ukrain
 ## 3. Cost-Effectiveness Analysis
 
 ### 3.1 Exchange Ratios
-| Threat | Interceptor Cost | Threat Cost | Ratio |
-|--------|-----------------|-------------|-------|
-| Shahed drone | $4,000,000 | $30,000 | 133:1 |
-| Kalibr cruise | $3,500,000 | $3,000,000 | 1.2:1 |
-| Iskander | $3,500,000 | $6,000,000 | 0.6:1 |
-| Kinzhal | $4,000,000 | $12,000,000 | 0.3:1 |
+| Threat | Interceptor Cost | Threat Cost | Ratio | Notes |
+|--------|-----------------|-------------|-------|-------|
+| Shahed drone | $4,000,000 | $193,000 (procured) | 21:1 | Using verified purchase price (THR-15). With RU domestic cost $48-80K: ~50-80:1. Earlier draft's 133:1 used unsourced $30K estimate — retired |
+| Kalibr cruise | $3,500,000 | $3,000,000 | 1.2:1 | |
+| Iskander | $3,500,000 | $6,000,000 | 0.6:1 | |
+| Kinzhal | $4,000,000 | $12,000,000 | 0.3:1 | |
+
+> **Verification note (2026-08-29):** Threat unit costs (Kalibr $3M, Iskander $6M, Kinzhal $12M) are [estimates] — no reliable public source found. Shahed cost corrected per THR-15. Interceptor costs remain unverified (COST-01/02).
 
 ### 3.2 Economic Impact
 - Ukraine's 2024 defense budget: ~$40 billion

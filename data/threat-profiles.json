@@ -3,37 +3,94 @@
     "kinzhal": {
       "type": "hypersonic_ballistic",
       "speed_mach": 10,
-      "range_km": 2000,
+      "speed_mach_min": 4,
+      "range_km": 1500,
+      "range_km_max": 2000,
+      "range_km_note": "Up to 3000 km on Tu-22M3 (TASS 2018)",
       "cost_usd": 12000000,
-      "warhead_kg": 500
+      "cost_status": "estimate",
+      "warhead_kg": 480,
+      "payload_note": "Conventional or nuclear",
+      "length_m": 8,
+      "diameter_m": 1,
+      "launch_weight_kg": 4300,
+      "source": "CSIS Missile Threat",
+      "source_url": "https://missilethreat.csis.org/missile/kinzhal/",
+      "retrieved": "2026-08-29"
     },
     "iskander": {
       "type": "ballistic",
       "speed_mach": 6,
+      "speed_status": "unverified (not on CSIS page)",
       "range_km": 500,
+      "range_km_min": 400,
+      "range_km_max": 500,
+      "range_export_km": 280,
       "cost_usd": 6000000,
-      "warhead_kg": 500
+      "cost_status": "estimate",
+      "warhead_kg": 480,
+      "warhead_kg_max": 700,
+      "warhead_note": "HE, submunition, earth-penetrator, thermobaric",
+      "cep_m": "200 inertial / 50 GLONASS / 10-20 optical",
+      "launch_weight_kg": 3800,
+      "launch_weight_kg_max": 4020,
+      "in_service": 2006,
+      "source": "CSIS Missile Threat",
+      "source_url": "https://missilethreat.csis.org/missile/ss-26-2/",
+      "retrieved": "2026-08-29"
     },
     "kalibr": {
       "type": "cruise",
-      "speed_mach": 2.5,
+      "speed_mach": 0.8,
+      "speed_note": "3M-14 subsonic turbojet; only 3M-54 has ~300km supersonic terminal sprint (repo originally claimed Mach 2.5-3 for 3M-14 - corrected)",
       "range_km": 1500,
+      "range_km_max": 2500,
       "cost_usd": 3000000,
-      "warhead_kg": 450
+      "cost_status": "estimate",
+      "warhead_kg": 450,
+      "warhead_note": "HE, possibly nuclear-capable",
+      "in_service": 2015,
+      "source": "CSIS Missile Threat",
+      "source_url": "https://missilethreat.csis.org/missile/ss-n-30a/",
+      "retrieved": "2026-08-29"
     },
     "kh101": {
       "type": "cruise",
       "speed_mach": 0.8,
-      "range_km": 3000,
+      "speed_mach_cruise": 0.58,
+      "range_km": 2500,
+      "range_km_max": 2800,
+      "range_km_note": "Unconfirmed Russian MoD claim up to 4500 km (repo originally claimed 3000-5500 km - corrected)",
       "cost_usd": 2500000,
-      "warhead_kg": 400
+      "cost_status": "estimate",
+      "warhead_kg": 450,
+      "warhead_note": "HE, fragmentation, submunition (Kh-101); 250 kt nuclear (Kh-102)",
+      "in_service": 2012,
+      "source": "CSIS Missile Threat",
+      "source_url": "https://missilethreat.csis.org/missile/kh-101/",
+      "retrieved": "2026-08-29"
     },
     "shahed": {
       "type": "loitering_munition",
       "speed_kmh": 185,
-      "range_km": 1000,
+      "range_km": 970,
+      "range_km_max": 1500,
+      "range_km_note": "Some estimates up to 2000-2500 km (repo originally claimed 1000-2000 km - refined)",
       "cost_usd": 30000,
-      "warhead_kg": 40
+      "cost_note": "CORRECTED: 2022 estimate $20-50K; leaked Iranian docs show $193K/unit to Russia (6000 order); Russian domestic $48-80K (2024). 133:1 cost asymmetry must be revised.",
+      "cost_status": "corrected-range",
+      "warhead_kg": 40,
+      "mass_kg": 200,
+      "mass_kg_max": 240,
+      "guidance": "GNSS + INS (+ teleoperation on later variants)",
+      "source": "Wikipedia (aggregates CSIS/Reuters/leaked-doc reporting)",
+      "source_url": "https://en.wikipedia.org/wiki/HESA_Shahed_136",
+      "retrieved": "2026-08-29"
     }
+  },
+  "_meta": {
+    "verification_report": "sources/VERIFIED-2026-08-29.md",
+    "claim_registry": "sources/REFERENCES.csv",
+    "note": "cost_usd values marked 'estimate' unless cost_status says otherwise. Range/warhead values corrected per authoritative sources on 2026-08-29."
   }
 }

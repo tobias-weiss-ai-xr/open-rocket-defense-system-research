@@ -1,10 +1,11 @@
 # Sources Audit — What's Missing
 
-**Status: ⚠️ CRITICAL — 0 of ~60 quantitative claims currently have a citation**
+**Status: IN PROGRESS — 13 of 36 claims verified (36%), 0% when this audit started**
+
+Last update: **2026-08-29** — P1 threat specs verified (see [VERIFIED-2026-08-29.md](VERIFIED-2026-08-29.md))
 
 This audit maps every quantitative claim in the research to the authoritative source(s)
-needed to support it. Until these sources are collected, the documents should be treated
-as **hypothesis, not verified analysis**.
+needed to support it. Until a claim is verified, treat it as **hypothesis, not verified analysis**.
 
 ---
 
@@ -16,6 +17,22 @@ or footnotes. For a topic affecting real procurement and lives, unsourced number
 worse than no numbers: they carry the *appearance* of evidence.
 
 This audit is a checklist, not a solved list. Collecting these sources is an open task.
+
+---
+
+## ✅ Verification Progress
+
+| Priority | Status | Claims verified |
+|----------|--------|-----------------|
+| **P1** threat specs | 🟢 DONE 2026-08-29 | 13/16 (THR-01..15; 3 not verifiable publicly — unit costs, casualties) |
+| P2 system cost/effectiveness | ⏳ open | 0 |
+| P3 Kinzhal intercepts | ⏳ open | 0 |
+| P4 defense economics | ⏳ open | 0 |
+| P5 Monte Carlo params | ⏳ open | 0 |
+
+**7 corrections applied to the repo on 2026-08-29** (Kinzhal range/warhead, Iskander
+payload, Kalibr speed+warhead, Kh-101 range/warhead, Shahed cost). The headline "133:1"
+asymmetry was retired — verified range is ~20:1 to ~80:1 depending on Shahed cost scenario.
 
 ---
 
@@ -125,4 +142,4 @@ These are the real, verifiable institutions whose publications should populate t
 4. The Monte Carlo script prints which claim IDs back its assumptions.
 5. Only 100%-verified claims show in the dashboard as "data"; unverified stay labeled [estimate].
 
-**Current state:** 0 verified claims. First milestone: verify the 6 threat-spec claims (P1) — ~1 hour of OSINT collection each at most.
+**Current state:** 13/36 claims verified (36%). P1 threat specs complete — every missile-range/warhead/speed figure in the repo now carries a CSIS or Wikipedia/primary-URL citation with retrieval date. First milestone of P1 achieved 2026-08-29; next milestone is P2 (system costs).

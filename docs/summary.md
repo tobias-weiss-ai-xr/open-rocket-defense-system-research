@@ -12,8 +12,10 @@ Research framework established with comprehensive analysis of:
 
 ### Cost Asymmetry Problem
 - Patriot interceptor: $3-4M
-- Shahed drone: $30K
-- **Exchange ratio: 133:1** (prohibitively expensive)
+- Shahed drone: **revised** — 2022 estimate $20-50K; leaked Iranian docs show **$193K/unit sold to Russia**; Russian domestic **~$48-80K** by 2024 *(THR-15)*
+- **Exchange ratio: ~20:1 ($193K) to ~50-80:1 ($48-80K domestic)** — NOT 133:1 as earlier draft claimed (that used the outdated $30K estimate)
+
+> **Verification note (2026-08-29):** See `sources/VERIFIED-2026-08-29.md` and `sources/REFERENCES.csv`. The 133:1 figure was based on an unsourced $30K unit cost and should not be cited until re-derived from verified costs.
 
 ### Recommended Approach
 1. **Layered defense** - Multiple systems at different ranges
