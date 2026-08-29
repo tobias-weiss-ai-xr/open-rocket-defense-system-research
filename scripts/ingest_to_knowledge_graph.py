@@ -124,7 +124,7 @@ def extract_metadata(filepath: str, markdown: str) -> dict:
     }
 
 
-def create_document_node(metadata: dict) -> str:
+def create_document_node(metadata: dict, content_hash: str = "") -> str:
     """Create a Document node in Neo4j"""
     # Escape single quotes for Cypher
     title = metadata['title'].replace("'", "\\'")
@@ -142,6 +142,7 @@ CREATE (d:Document {{
   subtopic: '{subtopic}',
   ingestionDate: datetime(),
   contentType: 'markdown',
+  contentHash: '{content_hash}',
   wordCount: {len(metadata['title'].split())}
 }})
 RETURN d.sourceFile AS id
@@ -190,43 +191,76 @@ RETURN d
     ssh_cypher(query)
 
 
+def delete_document(document_file: str) -> None:
+    """Delete an existing Document and all connected Content nodes (used for re-ingest)."""
+    doc_file_escaped = document_file.replace("'", "\\'")
+    query = f"""
+MATCH (d:Document {{sourceFile: '{doc_file_escaped}'}})
+OPTIONAL MATCH (d)-[:HAS_CONTENT]->(c:Content)
+DETACH DELETE d, c
+"""
+    ssh_cypher(query)
+
+
+def file_content_hash(markdown: str) -> str:
+    """Stable short hash to detect content changes for re-ingestion."""
+    import hashlib
+    return hashlib.sha256(markdown.encode('utf-8')).hexdigest()[:16]
+
+
 def ingest_markdown_file(filepath: str) -> dict:
-    """Ingest a single markdown file into Neo4j"""
+    """Ingest a single markdown file into Neo4j.
+
+    Re-ingests if the file content changed since the last ingestion
+    (tracked via contentHash on the Document node).
+    """
     print(f"\nProcessing: {filepath}")
-    
+
     # Read file
     with open(filepath, 'r', encoding='utf-8') as f:
         markdown = f.read()
-    
+
     # Extract metadata
     metadata = extract_metadata(filepath, markdown)
     print(f"  Title: {metadata['title']}")
-    
-    # Check if document already exists
+
+    content_hash = file_content_hash(markdown)
     source_file_escaped = metadata['source_file'].replace("'", "\\'")
-    check_query = f"MATCH (d:Document {{sourceFile: '{source_file_escaped}'}}) RETURN d"
-    existing = ssh_cypher(check_query)
-    if existing.strip():
-        print(f"  Document already exists, skipping...")
-        return {"status": "skipped", "file": metadata['source_file']}
-    
+
+    # Check if document exists and whether content changed
+    check_query = f"MATCH (d:Document {{sourceFile: '{source_file_escaped}'}}) " \
+                  f"RETURN d.contentHash AS hash, d.title AS title"
+    existing = ssh_cypher(check_query).strip()
+
+    if existing:
+        stored_hash = ""
+        for line in existing.splitlines()[1:]:  # skip header
+            if "," in line:
+                stored_hash = line.split(",")[0].strip('" ')
+                break
+        if stored_hash == content_hash:
+            print(f"  Unchanged (hash {content_hash[:8]}[...]), skipping")
+            return {"status": "skipped", "file": metadata['source_file'], "unchanged": True}
+        print(f"  Content CHANGED (was {stored_hash[:8]}[...], now {content_hash[:8]}[...]) -> re-ingesting")
+        delete_document(metadata['source_file'])
+
     # Chunk content
     chunks = chunk_markdown(markdown)
     print(f"  Created {len(chunks)} content chunks")
-    
+
     # Create Document node
-    doc_result = create_document_node(metadata)
+    doc_result = create_document_node(metadata, content_hash)
     print(f"  Created Document node")
-    
+
     # Create Content chunks
     content_count = create_content_chunks(metadata['source_file'], chunks)
     print(f"  Created {content_count} Content nodes")
-    
+
     # Add tags
     tags = ["military-defense", "ukraine", "rocket-defense", "cost-analysis", "air-defense"]
     add_tags(metadata['source_file'], tags)
     print(f"  Added tags: {', '.join(tags)}")
-    
+
     return {"status": "ingested", "file": metadata['source_file'], "chunks": len(chunks)}
 
 
